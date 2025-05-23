@@ -1,6 +1,6 @@
 # Slash SDK Python API library
 
-[![PyPI version](https://img.shields.io/pypi/v/slash_sdk.svg)](https://pypi.org/project/slash_sdk/)
+[![PyPI version](https://img.shields.io/pypi/v/slash-sdk.svg)](https://pypi.org/project/slash-sdk/)
 
 The Slash SDK Python library provides convenient access to the Slash SDK REST API from any Python 3.8+
 application. The library includes type definitions for all request params and response fields,
@@ -16,7 +16,7 @@ The full API of this library can be found in [api.md](api.md).
 
 ```sh
 # install from PyPI
-pip install --pre slash_sdk
+pip install --pre slash-sdk
 ```
 
 ## Usage
