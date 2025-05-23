@@ -1,6 +1,6 @@
 # Slash SDK Python API library
 
-[![PyPI version](https://img.shields.io/pypi/v/slash_sdk.svg)](https://pypi.org/project/slash_sdk/)
+[![PyPI version](https://img.shields.io/pypi/v/slash-sdk.svg)](https://pypi.org/project/slash-sdk/)
 
 The Slash SDK Python library provides convenient access to the Slash SDK REST API from any Python 3.8+
 application. The library includes type definitions for all request params and response fields,
@@ -15,12 +15,9 @@ The full API of this library can be found in [api.md](api.md).
 ## Installation
 
 ```sh
-# install from this staging repo
-pip install git+ssh://git@github.com/stainless-sdks/slash-sdk-python.git
+# install from PyPI
+pip install --pre slash-sdk
 ```
-
-> [!NOTE]
-> Once this package is [published to PyPI](https://app.stainless.com/docs/guides/publish), this will become: `pip install --pre slash_sdk`
 
 ## Usage
 
@@ -260,9 +257,9 @@ legal_entity = response.parse()  # get the object that `legal_entity.list()` wou
 print(legal_entity.items)
 ```
 
-These methods return an [`APIResponse`](https://github.com/stainless-sdks/slash-sdk-python/tree/main/src/slash_sdk/_response.py) object.
+These methods return an [`APIResponse`](https://github.com/slashfi/slash-sdk-python/tree/main/src/slash_sdk/_response.py) object.
 
-The async client returns an [`AsyncAPIResponse`](https://github.com/stainless-sdks/slash-sdk-python/tree/main/src/slash_sdk/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
+The async client returns an [`AsyncAPIResponse`](https://github.com/slashfi/slash-sdk-python/tree/main/src/slash_sdk/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
 
 #### `.with_streaming_response`
 
@@ -366,7 +363,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/slash-sdk-python/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/slashfi/slash-sdk-python/issues) with questions, bugs, or suggestions.
 
 ### Determining the installed version
 

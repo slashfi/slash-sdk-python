@@ -38,7 +38,7 @@ class VirtualAccountResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/slash-sdk-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/slashfi/slash-sdk-python#accessing-raw-response-data-eg-headers
         """
         return VirtualAccountResourceWithRawResponse(self)
 
@@ -47,7 +47,7 @@ class VirtualAccountResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/slash-sdk-python#with_streaming_response
+        For more information, see https://www.github.com/slashfi/slash-sdk-python#with_streaming_response
         """
         return VirtualAccountResourceWithStreamingResponse(self)
 
@@ -298,7 +298,7 @@ class AsyncVirtualAccountResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/slash-sdk-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/slashfi/slash-sdk-python#accessing-raw-response-data-eg-headers
         """
         return AsyncVirtualAccountResourceWithRawResponse(self)
 
@@ -307,7 +307,7 @@ class AsyncVirtualAccountResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/slash-sdk-python#with_streaming_response
+        For more information, see https://www.github.com/slashfi/slash-sdk-python#with_streaming_response
         """
         return AsyncVirtualAccountResourceWithStreamingResponse(self)
 
