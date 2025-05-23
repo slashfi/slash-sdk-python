@@ -28,7 +28,7 @@ class SlashHandleResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/slash-sdk-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/slashfi/slash-sdk-python#accessing-raw-response-data-eg-headers
         """
         return SlashHandleResourceWithRawResponse(self)
 
@@ -37,7 +37,7 @@ class SlashHandleResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/slash-sdk-python#with_streaming_response
+        For more information, see https://www.github.com/slashfi/slash-sdk-python#with_streaming_response
         """
         return SlashHandleResourceWithStreamingResponse(self)
 
@@ -86,7 +86,7 @@ class AsyncSlashHandleResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/slash-sdk-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/slashfi/slash-sdk-python#accessing-raw-response-data-eg-headers
         """
         return AsyncSlashHandleResourceWithRawResponse(self)
 
@@ -95,7 +95,7 @@ class AsyncSlashHandleResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/slash-sdk-python#with_streaming_response
+        For more information, see https://www.github.com/slashfi/slash-sdk-python#with_streaming_response
         """
         return AsyncSlashHandleResourceWithStreamingResponse(self)
 
