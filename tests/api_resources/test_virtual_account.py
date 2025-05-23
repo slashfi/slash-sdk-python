@@ -237,7 +237,7 @@ class TestVirtualAccount:
         virtual_account = client.virtual_account.list(
             cursor="cursor",
             filter_account_id="filter:accountId",
-            filter_include_closed_accounts=None,
+            filter_include_closed_accounts="true",
         )
         assert_matches_type(VirtualAccountListResponse, virtual_account, path=["response"])
 
@@ -481,7 +481,7 @@ class TestAsyncVirtualAccount:
         virtual_account = await async_client.virtual_account.list(
             cursor="cursor",
             filter_account_id="filter:accountId",
-            filter_include_closed_accounts=None,
+            filter_include_closed_accounts="true",
         )
         assert_matches_type(VirtualAccountListResponse, virtual_account, path=["response"])
 

@@ -19,7 +19,9 @@ class VirtualAccountListParams(TypedDict, total=False):
     This will return all virtual accounts that match the account ID passed in.
     """
 
-    filter_include_closed_accounts: Annotated[Literal, PropertyInfo(alias="filter:includeClosedAccounts")]
+    filter_include_closed_accounts: Annotated[
+        Literal["true", "false"], PropertyInfo(alias="filter:includeClosedAccounts")
+    ]
     """Include virtual accounts that have been closed in the query results.
 
     By default, they will not be returned.
