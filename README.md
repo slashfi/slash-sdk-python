@@ -85,44 +85,7 @@ client = SlashSDK()
 card = client.card.create(
     name="name",
     type="virtual",
-    spending_constraint={
-        "country_rule": {
-            "countries": ["string"],
-            "restriction": "allowlist",
-        },
-        "merchant_category_code_rule": {
-            "merchant_category_codes": ["string"],
-            "restriction": "allowlist",
-        },
-        "merchant_category_rule": {
-            "merchant_categories": ["string"],
-            "restriction": "allowlist",
-        },
-        "merchant_rule": {
-            "merchants": ["string"],
-            "restriction": "allowlist",
-        },
-        "spending_rule": {
-            "transaction_size_limit": {
-                "maximum": {"amount_cents": 0},
-                "minimum": {"amount_cents": 0},
-            },
-            "utilization_limit": {
-                "limit_amount": {"amount_cents": 0},
-                "preset": "daily",
-                "start_date": "startDate",
-                "timezone": "timezone",
-            },
-            "utilization_limit_v2": [
-                {
-                    "limit_amount": {"amount_cents": 0},
-                    "preset": "daily",
-                    "start_date": "startDate",
-                    "timezone": "timezone",
-                }
-            ],
-        },
-    },
+    spending_constraint={},
 )
 print(card.spending_constraint)
 ```
