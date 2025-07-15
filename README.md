@@ -79,7 +79,6 @@ pip install --pre slash-sdk[aiohttp]
 Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
 
 ```python
-import os
 import asyncio
 from slash_sdk import DefaultAioHttpClient
 from slash_sdk import AsyncSlashSDK
@@ -87,7 +86,7 @@ from slash_sdk import AsyncSlashSDK
 
 async def main() -> None:
     async with AsyncSlashSDK(
-        api_key=os.environ.get("SLASH_SDK_API_KEY"),  # This is the default and can be omitted
+        api_key="My API Key",
         http_client=DefaultAioHttpClient(),
     ) as client:
         legal_entities = await client.legal_entity.list()
