@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.3 (2026-03-06)
+
+Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/slashfi/slash-sdk-python/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
+
+### Features
+
+* **api:** api update ([800f4fc](https://github.com/slashfi/slash-sdk-python/commit/800f4fcf172d2c11b5d4b10dbfb4a463d52ed6cb))
+
 ## 0.1.0-alpha.2 (2026-03-06)
 
 Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/slashfi/slash-sdk-python/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
