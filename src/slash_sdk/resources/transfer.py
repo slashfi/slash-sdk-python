@@ -5,7 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ..types import transfer_create_virtual_account_transfer_params
-from .._types import Body, Query, Headers, NotGiven, not_given
+from .._types import Body, Omit, Query, Headers, NotGiven, omit, not_given
 from .._utils import maybe_transform, async_maybe_transform
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
@@ -48,6 +48,7 @@ class TransferResource(SyncAPIResource):
         destination: str,
         source: str,
         x_idempotency_key: str,
+        memo: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -68,6 +69,8 @@ class TransferResource(SyncAPIResource):
               account linked to a primary Slash account to fund a new virtual account (Virtual
               account with the name 'Primary account').
 
+          memo: Optional memo/description for the transfer to help differentiate transactions.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -84,6 +87,7 @@ class TransferResource(SyncAPIResource):
                     "amount_cents": amount_cents,
                     "destination": destination,
                     "source": source,
+                    "memo": memo,
                 },
                 transfer_create_virtual_account_transfer_params.TransferCreateVirtualAccountTransferParams,
             ),
@@ -121,6 +125,7 @@ class AsyncTransferResource(AsyncAPIResource):
         destination: str,
         source: str,
         x_idempotency_key: str,
+        memo: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -141,6 +146,8 @@ class AsyncTransferResource(AsyncAPIResource):
               account linked to a primary Slash account to fund a new virtual account (Virtual
               account with the name 'Primary account').
 
+          memo: Optional memo/description for the transfer to help differentiate transactions.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -157,6 +164,7 @@ class AsyncTransferResource(AsyncAPIResource):
                     "amount_cents": amount_cents,
                     "destination": destination,
                     "source": source,
+                    "memo": memo,
                 },
                 transfer_create_virtual_account_transfer_params.TransferCreateVirtualAccountTransferParams,
             ),
