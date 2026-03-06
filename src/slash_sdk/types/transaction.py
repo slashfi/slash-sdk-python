@@ -11,6 +11,8 @@ __all__ = ["Transaction", "MerchantData", "MerchantDataLocation", "OriginalCurre
 
 
 class MerchantDataLocation(BaseModel):
+    """Location details for the merchant/transaction."""
+
     city: str
     """The city of the merchant."""
 
@@ -25,6 +27,11 @@ class MerchantDataLocation(BaseModel):
 
 
 class MerchantData(BaseModel):
+    """
+    For card transactions, contains description of the transaction as reported by the merchant, merchant category code, and location of the merchant or origin of the transaction.
+    For other transactions, this field is undefined.
+    """
+
     category_code: str = FieldInfo(alias="categoryCode")
     """The merchant's category code (MCC)"""
 
@@ -36,6 +43,11 @@ class MerchantData(BaseModel):
 
 
 class OriginalCurrency(BaseModel):
+    """The original currency of the transaction.
+
+    This is only applicable to transactions. If this field is not sent, the original currency is in USD.
+    """
+
     amount_cents: float = FieldInfo(alias="amountCents")
     """The amount of the transaction in its original currency in cents."""
 

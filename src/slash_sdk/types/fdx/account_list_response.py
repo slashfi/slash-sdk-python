@@ -63,6 +63,11 @@ class AccountInsuranceAccountInsuranceAccountCurrency(BaseModel):
 
 
 class AccountInsuranceAccountInsuranceAccount(BaseModel):
+    """An insurance account.
+
+    For example, whole life insurance or short-term disability.
+    """
+
     account_id: str = FieldInfo(alias="accountId")
     """Long-term persistent identity of the account, though not an account number."""
 
@@ -114,6 +119,8 @@ class AccountAnnuityAccountAnnuityAccountCurrency(BaseModel):
 
 
 class AccountAnnuityAccountAnnuityAccount(BaseModel):
+    """An annuity account. For example, a fixed or variable annuity account."""
+
     account_id: str = FieldInfo(alias="accountId")
     """Long-term persistent identity of the account, though not an account number."""
 
@@ -160,6 +167,8 @@ class AccountCommercialAccountCommercialAccountCurrency(BaseModel):
 
 
 class AccountCommercialAccountCommercialAccount(BaseModel):
+    """A commercial account. For example, a business deposit account."""
+
     account_id: str = FieldInfo(alias="accountId")
     """Long-term persistent identity of the account, though not an account number."""
 

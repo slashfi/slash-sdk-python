@@ -20,7 +20,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestWebhook:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create(self, client: SlashSDK) -> None:
         webhook = client.webhook.create(
@@ -29,7 +29,7 @@ class TestWebhook:
         )
         assert_matches_type(Webhook, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create_with_all_params(self, client: SlashSDK) -> None:
         webhook = client.webhook.create(
@@ -39,7 +39,7 @@ class TestWebhook:
         )
         assert_matches_type(Webhook, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_create(self, client: SlashSDK) -> None:
         response = client.webhook.with_raw_response.create(
@@ -52,7 +52,7 @@ class TestWebhook:
         webhook = response.parse()
         assert_matches_type(Webhook, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_create(self, client: SlashSDK) -> None:
         with client.webhook.with_streaming_response.create(
@@ -67,7 +67,7 @@ class TestWebhook:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_update(self, client: SlashSDK) -> None:
         webhook = client.webhook.update(
@@ -76,7 +76,7 @@ class TestWebhook:
         )
         assert_matches_type(Webhook, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_update_with_all_params(self, client: SlashSDK) -> None:
         webhook = client.webhook.update(
@@ -86,7 +86,7 @@ class TestWebhook:
         )
         assert_matches_type(Webhook, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_update(self, client: SlashSDK) -> None:
         response = client.webhook.with_raw_response.update(
@@ -99,7 +99,7 @@ class TestWebhook:
         webhook = response.parse()
         assert_matches_type(Webhook, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_update(self, client: SlashSDK) -> None:
         with client.webhook.with_streaming_response.update(
@@ -114,7 +114,7 @@ class TestWebhook:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_update(self, client: SlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `webhook_id` but received ''"):
@@ -123,13 +123,13 @@ class TestWebhook:
                 status="archived",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list(self, client: SlashSDK) -> None:
         webhook = client.webhook.list()
         assert_matches_type(WebhookListResponse, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_with_all_params(self, client: SlashSDK) -> None:
         webhook = client.webhook.list(
@@ -138,7 +138,7 @@ class TestWebhook:
         )
         assert_matches_type(WebhookListResponse, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_list(self, client: SlashSDK) -> None:
         response = client.webhook.with_raw_response.list()
@@ -148,7 +148,7 @@ class TestWebhook:
         webhook = response.parse()
         assert_matches_type(WebhookListResponse, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_list(self, client: SlashSDK) -> None:
         with client.webhook.with_streaming_response.list() as response:
@@ -166,7 +166,7 @@ class TestAsyncWebhook:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create(self, async_client: AsyncSlashSDK) -> None:
         webhook = await async_client.webhook.create(
@@ -175,7 +175,7 @@ class TestAsyncWebhook:
         )
         assert_matches_type(Webhook, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncSlashSDK) -> None:
         webhook = await async_client.webhook.create(
@@ -185,7 +185,7 @@ class TestAsyncWebhook:
         )
         assert_matches_type(Webhook, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.webhook.with_raw_response.create(
@@ -198,7 +198,7 @@ class TestAsyncWebhook:
         webhook = await response.parse()
         assert_matches_type(Webhook, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.webhook.with_streaming_response.create(
@@ -213,7 +213,7 @@ class TestAsyncWebhook:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_update(self, async_client: AsyncSlashSDK) -> None:
         webhook = await async_client.webhook.update(
@@ -222,7 +222,7 @@ class TestAsyncWebhook:
         )
         assert_matches_type(Webhook, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_update_with_all_params(self, async_client: AsyncSlashSDK) -> None:
         webhook = await async_client.webhook.update(
@@ -232,7 +232,7 @@ class TestAsyncWebhook:
         )
         assert_matches_type(Webhook, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_update(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.webhook.with_raw_response.update(
@@ -245,7 +245,7 @@ class TestAsyncWebhook:
         webhook = await response.parse()
         assert_matches_type(Webhook, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_update(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.webhook.with_streaming_response.update(
@@ -260,7 +260,7 @@ class TestAsyncWebhook:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_update(self, async_client: AsyncSlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `webhook_id` but received ''"):
@@ -269,13 +269,13 @@ class TestAsyncWebhook:
                 status="archived",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list(self, async_client: AsyncSlashSDK) -> None:
         webhook = await async_client.webhook.list()
         assert_matches_type(WebhookListResponse, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncSlashSDK) -> None:
         webhook = await async_client.webhook.list(
@@ -284,7 +284,7 @@ class TestAsyncWebhook:
         )
         assert_matches_type(WebhookListResponse, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.webhook.with_raw_response.list()
@@ -294,7 +294,7 @@ class TestAsyncWebhook:
         webhook = await response.parse()
         assert_matches_type(WebhookListResponse, webhook, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.webhook.with_streaming_response.list() as response:

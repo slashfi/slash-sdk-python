@@ -10,5 +10,7 @@ __all__ = ["MoneyParam"]
 
 
 class MoneyParam(TypedDict, total=False):
+    """Represents a monetary value"""
+
     amount_cents: Required[Annotated[int, PropertyInfo(alias="amountCents")]]
     """The amount in cents"""

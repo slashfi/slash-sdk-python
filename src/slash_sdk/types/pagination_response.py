@@ -10,6 +10,8 @@ __all__ = ["PaginationResponse"]
 
 
 class PaginationResponse(BaseModel):
+    """Response sent when requesting a list of data"""
+
     count: Optional[float] = None
     """The number of items in the current page of data."""
 

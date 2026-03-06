@@ -114,6 +114,8 @@ class SpendingRule(BaseModel):
 
 
 class SpendingConstraint(BaseModel):
+    """A constraint that can be applied to a CardGroupSpendingRule"""
+
     country_rule: Optional[CountryRule] = FieldInfo(alias="countryRule", default=None)
 
     merchant_category_code_rule: Optional[MerchantCategoryCodeRule] = FieldInfo(

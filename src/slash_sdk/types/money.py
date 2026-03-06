@@ -8,5 +8,7 @@ __all__ = ["Money"]
 
 
 class Money(BaseModel):
+    """Represents a monetary value"""
+
     amount_cents: int = FieldInfo(alias="amountCents")
     """The amount in cents"""

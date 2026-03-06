@@ -19,6 +19,11 @@ class Currency(BaseModel):
 
 
 class LineOfCreditAccount(BaseModel):
+    """A line-of-credit account.
+
+    For example, a credit card or home equity line of credit.
+    """
+
     account_id: str = FieldInfo(alias="accountId")
     """Long-term persistent identity of the account, though not an account number."""
 

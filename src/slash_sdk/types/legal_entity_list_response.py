@@ -10,6 +10,12 @@ __all__ = ["LegalEntityListResponse", "Item"]
 
 
 class Item(BaseModel):
+    """
+    A legal entity is an entity (either a person or a business) that can own accounts.
+    If you are using the API with an API key, your API key will only be associated with one legal entity, so you will not need to specify the legal entity ID in most endpoints.
+    If you are using the API with an OAuth2 access token, you can filter the results of most endpoints to only show data for a specific legal entity by specifying the legal entity ID in the URL.
+    """
+
     id: str
 
     name: str

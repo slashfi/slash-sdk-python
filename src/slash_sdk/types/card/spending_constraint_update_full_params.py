@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
-from typing import List, Iterable, Optional
+from typing import Iterable, Optional
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 from .restriction import Restriction
 from ..money_param import MoneyParam
@@ -37,26 +38,26 @@ class SpendingConstraintUpdateFullParams(TypedDict, total=False):
 
 
 class CountryRule(TypedDict, total=False):
-    countries: Required[List[str]]
+    countries: Required[SequenceNotStr[str]]
     """A 2 digit country code"""
 
     restriction: Required[Restriction]
 
 
 class MerchantCategoryCodeRule(TypedDict, total=False):
-    merchant_category_codes: Required[Annotated[List[str], PropertyInfo(alias="merchantCategoryCodes")]]
+    merchant_category_codes: Required[Annotated[SequenceNotStr[str], PropertyInfo(alias="merchantCategoryCodes")]]
 
     restriction: Required[Restriction]
 
 
 class MerchantCategoryRule(TypedDict, total=False):
-    merchant_categories: Required[Annotated[List[str], PropertyInfo(alias="merchantCategories")]]
+    merchant_categories: Required[Annotated[SequenceNotStr[str], PropertyInfo(alias="merchantCategories")]]
 
     restriction: Required[Restriction]
 
 
 class MerchantRule(TypedDict, total=False):
-    merchants: Required[List[str]]
+    merchants: Required[SequenceNotStr[str]]
 
     restriction: Required[Restriction]
 

@@ -8,7 +8,7 @@ from typing_extensions import Literal
 import httpx
 
 from ...types import CardStatus, card_list_params, card_create_params, card_update_params, card_retrieve_params
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ..._types import Body, Omit, Query, Headers, NotGiven, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -65,19 +65,19 @@ class CardResource(SyncAPIResource):
         *,
         name: str,
         type: Literal["virtual"],
-        account_id: str | NotGiven = NOT_GIVEN,
-        card_group_id: str | NotGiven = NOT_GIVEN,
-        card_product_id: str | NotGiven = NOT_GIVEN,
-        is_single_use: bool | NotGiven = NOT_GIVEN,
-        spending_constraint: SpendingConstraintParam | NotGiven = NOT_GIVEN,
-        user_data: Dict[str, object] | NotGiven = NOT_GIVEN,
-        virtual_account_id: str | NotGiven = NOT_GIVEN,
+        account_id: str | Omit = omit,
+        card_group_id: str | Omit = omit,
+        card_product_id: str | Omit = omit,
+        is_single_use: bool | Omit = omit,
+        spending_constraint: SpendingConstraintParam | Omit = omit,
+        user_data: Dict[str, object] | Omit = omit,
+        virtual_account_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Card:
         """Create a card
 
@@ -141,14 +141,14 @@ class CardResource(SyncAPIResource):
         self,
         card_id: str,
         *,
-        include_cvv: Literal["true", "false"] | NotGiven = NOT_GIVEN,
-        include_pan: Literal["true", "false"] | NotGiven = NOT_GIVEN,
+        include_cvv: Literal["true", "false"] | Omit = omit,
+        include_pan: Literal["true", "false"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Card:
         """
         Fetch details for a single card by card ID
@@ -186,17 +186,17 @@ class CardResource(SyncAPIResource):
         self,
         card_id: str,
         *,
-        card_group_id: Optional[str] | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
-        spending_constraint: Optional[SpendingConstraintParam] | NotGiven = NOT_GIVEN,
-        status: CardStatus | NotGiven = NOT_GIVEN,
-        user_data: Optional[Dict[str, object]] | NotGiven = NOT_GIVEN,
+        card_group_id: Optional[str] | Omit = omit,
+        name: str | Omit = omit,
+        spending_constraint: Optional[SpendingConstraintParam] | Omit = omit,
+        status: CardStatus | Omit = omit,
+        user_data: Optional[Dict[str, object]] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Card:
         """
         Update a card
@@ -241,21 +241,21 @@ class CardResource(SyncAPIResource):
     def list(
         self,
         *,
-        cursor: str | NotGiven = NOT_GIVEN,
-        filter_account_id: str | NotGiven = NOT_GIVEN,
-        filter_card_group_id: str | NotGiven = NOT_GIVEN,
-        filter_card_group_name: str | NotGiven = NOT_GIVEN,
-        filter_legal_entity_id: str | NotGiven = NOT_GIVEN,
-        filter_status: Literal["active", "paused", "closed", "inactive"] | NotGiven = NOT_GIVEN,
-        filter_virtual_account_id: str | NotGiven = NOT_GIVEN,
-        sort: Literal["createdAt", "name"] | NotGiven = NOT_GIVEN,
-        sort_direction: Literal["ASC", "DESC"] | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        filter_account_id: str | Omit = omit,
+        filter_card_group_id: str | Omit = omit,
+        filter_card_group_name: str | Omit = omit,
+        filter_legal_entity_id: str | Omit = omit,
+        filter_status: Literal["active", "paused", "closed", "inactive"] | Omit = omit,
+        filter_virtual_account_id: str | Omit = omit,
+        sort: Literal["createdAt", "name"] | Omit = omit,
+        sort_direction: Literal["ASC", "DESC"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CardListResponse:
         """
         List all cards you have access to.
@@ -325,7 +325,7 @@ class CardResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CardGroupUtilization:
         """
         Get a card's current utilization
@@ -379,19 +379,19 @@ class AsyncCardResource(AsyncAPIResource):
         *,
         name: str,
         type: Literal["virtual"],
-        account_id: str | NotGiven = NOT_GIVEN,
-        card_group_id: str | NotGiven = NOT_GIVEN,
-        card_product_id: str | NotGiven = NOT_GIVEN,
-        is_single_use: bool | NotGiven = NOT_GIVEN,
-        spending_constraint: SpendingConstraintParam | NotGiven = NOT_GIVEN,
-        user_data: Dict[str, object] | NotGiven = NOT_GIVEN,
-        virtual_account_id: str | NotGiven = NOT_GIVEN,
+        account_id: str | Omit = omit,
+        card_group_id: str | Omit = omit,
+        card_product_id: str | Omit = omit,
+        is_single_use: bool | Omit = omit,
+        spending_constraint: SpendingConstraintParam | Omit = omit,
+        user_data: Dict[str, object] | Omit = omit,
+        virtual_account_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Card:
         """Create a card
 
@@ -455,14 +455,14 @@ class AsyncCardResource(AsyncAPIResource):
         self,
         card_id: str,
         *,
-        include_cvv: Literal["true", "false"] | NotGiven = NOT_GIVEN,
-        include_pan: Literal["true", "false"] | NotGiven = NOT_GIVEN,
+        include_cvv: Literal["true", "false"] | Omit = omit,
+        include_pan: Literal["true", "false"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Card:
         """
         Fetch details for a single card by card ID
@@ -500,17 +500,17 @@ class AsyncCardResource(AsyncAPIResource):
         self,
         card_id: str,
         *,
-        card_group_id: Optional[str] | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
-        spending_constraint: Optional[SpendingConstraintParam] | NotGiven = NOT_GIVEN,
-        status: CardStatus | NotGiven = NOT_GIVEN,
-        user_data: Optional[Dict[str, object]] | NotGiven = NOT_GIVEN,
+        card_group_id: Optional[str] | Omit = omit,
+        name: str | Omit = omit,
+        spending_constraint: Optional[SpendingConstraintParam] | Omit = omit,
+        status: CardStatus | Omit = omit,
+        user_data: Optional[Dict[str, object]] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Card:
         """
         Update a card
@@ -555,21 +555,21 @@ class AsyncCardResource(AsyncAPIResource):
     async def list(
         self,
         *,
-        cursor: str | NotGiven = NOT_GIVEN,
-        filter_account_id: str | NotGiven = NOT_GIVEN,
-        filter_card_group_id: str | NotGiven = NOT_GIVEN,
-        filter_card_group_name: str | NotGiven = NOT_GIVEN,
-        filter_legal_entity_id: str | NotGiven = NOT_GIVEN,
-        filter_status: Literal["active", "paused", "closed", "inactive"] | NotGiven = NOT_GIVEN,
-        filter_virtual_account_id: str | NotGiven = NOT_GIVEN,
-        sort: Literal["createdAt", "name"] | NotGiven = NOT_GIVEN,
-        sort_direction: Literal["ASC", "DESC"] | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        filter_account_id: str | Omit = omit,
+        filter_card_group_id: str | Omit = omit,
+        filter_card_group_name: str | Omit = omit,
+        filter_legal_entity_id: str | Omit = omit,
+        filter_status: Literal["active", "paused", "closed", "inactive"] | Omit = omit,
+        filter_virtual_account_id: str | Omit = omit,
+        sort: Literal["createdAt", "name"] | Omit = omit,
+        sort_direction: Literal["ASC", "DESC"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CardListResponse:
         """
         List all cards you have access to.
@@ -639,7 +639,7 @@ class AsyncCardResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CardGroupUtilization:
         """
         Get a card's current utilization
