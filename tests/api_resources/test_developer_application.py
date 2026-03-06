@@ -17,7 +17,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestDeveloperApplication:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_retrieve(self, client: SlashSDK) -> None:
         developer_application = client.developer_application.retrieve(
@@ -25,7 +25,7 @@ class TestDeveloperApplication:
         )
         assert_matches_type(DeveloperApplicationModel, developer_application, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_retrieve(self, client: SlashSDK) -> None:
         response = client.developer_application.with_raw_response.retrieve(
@@ -37,7 +37,7 @@ class TestDeveloperApplication:
         developer_application = response.parse()
         assert_matches_type(DeveloperApplicationModel, developer_application, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_retrieve(self, client: SlashSDK) -> None:
         with client.developer_application.with_streaming_response.retrieve(
@@ -51,7 +51,7 @@ class TestDeveloperApplication:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_retrieve(self, client: SlashSDK) -> None:
         with pytest.raises(
@@ -61,7 +61,7 @@ class TestDeveloperApplication:
                 "",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_update(self, client: SlashSDK) -> None:
         developer_application = client.developer_application.update(
@@ -69,7 +69,7 @@ class TestDeveloperApplication:
         )
         assert_matches_type(DeveloperApplicationModel, developer_application, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_update_with_all_params(self, client: SlashSDK) -> None:
         developer_application = client.developer_application.update(
@@ -89,7 +89,7 @@ class TestDeveloperApplication:
         )
         assert_matches_type(DeveloperApplicationModel, developer_application, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_update(self, client: SlashSDK) -> None:
         response = client.developer_application.with_raw_response.update(
@@ -101,7 +101,7 @@ class TestDeveloperApplication:
         developer_application = response.parse()
         assert_matches_type(DeveloperApplicationModel, developer_application, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_update(self, client: SlashSDK) -> None:
         with client.developer_application.with_streaming_response.update(
@@ -115,7 +115,7 @@ class TestDeveloperApplication:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_update(self, client: SlashSDK) -> None:
         with pytest.raises(
@@ -125,7 +125,7 @@ class TestDeveloperApplication:
                 developer_application_id="",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create_or_regenerate_secret(self, client: SlashSDK) -> None:
         developer_application = client.developer_application.create_or_regenerate_secret(
@@ -133,7 +133,7 @@ class TestDeveloperApplication:
         )
         assert_matches_type(DeveloperApplicationModel, developer_application, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_create_or_regenerate_secret(self, client: SlashSDK) -> None:
         response = client.developer_application.with_raw_response.create_or_regenerate_secret(
@@ -145,7 +145,7 @@ class TestDeveloperApplication:
         developer_application = response.parse()
         assert_matches_type(DeveloperApplicationModel, developer_application, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_create_or_regenerate_secret(self, client: SlashSDK) -> None:
         with client.developer_application.with_streaming_response.create_or_regenerate_secret(
@@ -159,7 +159,7 @@ class TestDeveloperApplication:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_create_or_regenerate_secret(self, client: SlashSDK) -> None:
         with pytest.raises(
@@ -171,9 +171,11 @@ class TestDeveloperApplication:
 
 
 class TestAsyncDeveloperApplication:
-    parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=["loose", "strict"])
+    parametrize = pytest.mark.parametrize(
+        "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
+    )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_retrieve(self, async_client: AsyncSlashSDK) -> None:
         developer_application = await async_client.developer_application.retrieve(
@@ -181,7 +183,7 @@ class TestAsyncDeveloperApplication:
         )
         assert_matches_type(DeveloperApplicationModel, developer_application, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_retrieve(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.developer_application.with_raw_response.retrieve(
@@ -193,7 +195,7 @@ class TestAsyncDeveloperApplication:
         developer_application = await response.parse()
         assert_matches_type(DeveloperApplicationModel, developer_application, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_retrieve(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.developer_application.with_streaming_response.retrieve(
@@ -207,7 +209,7 @@ class TestAsyncDeveloperApplication:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_retrieve(self, async_client: AsyncSlashSDK) -> None:
         with pytest.raises(
@@ -217,7 +219,7 @@ class TestAsyncDeveloperApplication:
                 "",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_update(self, async_client: AsyncSlashSDK) -> None:
         developer_application = await async_client.developer_application.update(
@@ -225,7 +227,7 @@ class TestAsyncDeveloperApplication:
         )
         assert_matches_type(DeveloperApplicationModel, developer_application, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_update_with_all_params(self, async_client: AsyncSlashSDK) -> None:
         developer_application = await async_client.developer_application.update(
@@ -245,7 +247,7 @@ class TestAsyncDeveloperApplication:
         )
         assert_matches_type(DeveloperApplicationModel, developer_application, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_update(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.developer_application.with_raw_response.update(
@@ -257,7 +259,7 @@ class TestAsyncDeveloperApplication:
         developer_application = await response.parse()
         assert_matches_type(DeveloperApplicationModel, developer_application, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_update(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.developer_application.with_streaming_response.update(
@@ -271,7 +273,7 @@ class TestAsyncDeveloperApplication:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_update(self, async_client: AsyncSlashSDK) -> None:
         with pytest.raises(
@@ -281,7 +283,7 @@ class TestAsyncDeveloperApplication:
                 developer_application_id="",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create_or_regenerate_secret(self, async_client: AsyncSlashSDK) -> None:
         developer_application = await async_client.developer_application.create_or_regenerate_secret(
@@ -289,7 +291,7 @@ class TestAsyncDeveloperApplication:
         )
         assert_matches_type(DeveloperApplicationModel, developer_application, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_create_or_regenerate_secret(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.developer_application.with_raw_response.create_or_regenerate_secret(
@@ -301,7 +303,7 @@ class TestAsyncDeveloperApplication:
         developer_application = await response.parse()
         assert_matches_type(DeveloperApplicationModel, developer_application, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_create_or_regenerate_secret(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.developer_application.with_streaming_response.create_or_regenerate_secret(
@@ -315,7 +317,7 @@ class TestAsyncDeveloperApplication:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_create_or_regenerate_secret(self, async_client: AsyncSlashSDK) -> None:
         with pytest.raises(

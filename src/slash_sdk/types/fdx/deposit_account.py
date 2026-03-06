@@ -19,6 +19,8 @@ class Currency(BaseModel):
 
 
 class DepositAccount(BaseModel):
+    """A deposit account. For example, a checking, savings or money market account."""
+
     account_id: str = FieldInfo(alias="accountId")
     """Long-term persistent identity of the account, though not an account number."""
 

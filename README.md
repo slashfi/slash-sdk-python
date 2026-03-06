@@ -1,8 +1,9 @@
 # Slash SDK Python API library
 
-[![PyPI version](https://img.shields.io/pypi/v/slash-sdk.svg)](https://pypi.org/project/slash-sdk/)
+<!-- prettier-ignore -->
+[![PyPI version](https://img.shields.io/pypi/v/slash-sdk.svg?label=pypi%20(stable))](https://pypi.org/project/slash-sdk/)
 
-The Slash SDK Python library provides convenient access to the Slash SDK REST API from any Python 3.8+
+The Slash SDK Python library provides convenient access to the Slash SDK REST API from any Python 3.9+
 application. The library includes type definitions for all request params and response fields,
 and offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).
 
@@ -16,7 +17,7 @@ The full API of this library can be found in [api.md](api.md).
 
 ```sh
 # install from PyPI
-pip install --pre slash-sdk
+pip install '--pre slash-sdk'
 ```
 
 ## Usage
@@ -64,6 +65,38 @@ asyncio.run(main())
 
 Functionality between the synchronous and asynchronous clients is otherwise identical.
 
+### With aiohttp
+
+By default, the async client uses `httpx` for HTTP requests. However, for improved concurrency performance you may also use `aiohttp` as the HTTP backend.
+
+You can enable this by installing `aiohttp`:
+
+```sh
+# install from PyPI
+pip install '--pre slash-sdk[aiohttp]'
+```
+
+Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
+
+```python
+import os
+import asyncio
+from slash_sdk import DefaultAioHttpClient
+from slash_sdk import AsyncSlashSDK
+
+
+async def main() -> None:
+    async with AsyncSlashSDK(
+        api_key=os.environ.get("SLASH_SDK_API_KEY"),  # This is the default and can be omitted
+        http_client=DefaultAioHttpClient(),
+    ) as client:
+        legal_entities = await client.legal_entity.list()
+        print(legal_entities.items)
+
+
+asyncio.run(main())
+```
+
 ## Using types
 
 Nested request parameters are [TypedDicts](https://docs.python.org/3/library/typing.html#typing.TypedDict). Responses are [Pydantic models](https://docs.pydantic.dev) which also provide helper methods for things like:
@@ -85,44 +118,7 @@ client = SlashSDK()
 card = client.card.create(
     name="name",
     type="virtual",
-    spending_constraint={
-        "country_rule": {
-            "countries": ["string"],
-            "restriction": "allowlist",
-        },
-        "merchant_category_code_rule": {
-            "merchant_category_codes": ["string"],
-            "restriction": "allowlist",
-        },
-        "merchant_category_rule": {
-            "merchant_categories": ["string"],
-            "restriction": "allowlist",
-        },
-        "merchant_rule": {
-            "merchants": ["string"],
-            "restriction": "allowlist",
-        },
-        "spending_rule": {
-            "transaction_size_limit": {
-                "maximum": {"amount_cents": 0},
-                "minimum": {"amount_cents": 0},
-            },
-            "utilization_limit": {
-                "limit_amount": {"amount_cents": 0},
-                "preset": "daily",
-                "start_date": "startDate",
-                "timezone": "timezone",
-            },
-            "utilization_limit_v2": [
-                {
-                    "limit_amount": {"amount_cents": 0},
-                    "preset": "daily",
-                    "start_date": "startDate",
-                    "timezone": "timezone",
-                }
-            ],
-        },
-    },
+    spending_constraint={},
 )
 print(card.spending_constraint)
 ```
@@ -192,7 +188,7 @@ client.with_options(max_retries=5).legal_entity.list()
 ### Timeouts
 
 By default requests time out after 1 minute. You can configure this with a `timeout` option,
-which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/#fine-tuning-the-configuration) object:
+which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/timeouts/#fine-tuning-the-configuration) object:
 
 ```python
 from slash_sdk import SlashSDK
@@ -378,7 +374,7 @@ print(slash_sdk.__version__)
 
 ## Requirements
 
-Python 3.8 or higher.
+Python 3.9 or higher.
 
 ## Contributing
 

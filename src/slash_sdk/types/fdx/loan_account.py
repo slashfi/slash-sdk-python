@@ -19,6 +19,8 @@ class Currency(BaseModel):
 
 
 class LoanAccount(BaseModel):
+    """A loan account. For example, mortgage, student loan or auto loan."""
+
     account_id: str = FieldInfo(alias="accountId")
     """Long-term persistent identity of the account, though not an account number."""
 

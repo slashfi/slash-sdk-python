@@ -11,6 +11,8 @@ __all__ = ["VirtualAccountModel"]
 
 
 class VirtualAccountModel(BaseModel):
+    """The virtual account object"""
+
     id: str
     """The ID of the virtual account."""
 

@@ -19,7 +19,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestDeveloperAccount:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create_application(self, client: SlashSDK) -> None:
         developer_account = client.developer_account.create_application(
@@ -35,7 +35,7 @@ class TestDeveloperAccount:
         )
         assert_matches_type(DeveloperApplicationModel, developer_account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create_application_with_all_params(self, client: SlashSDK) -> None:
         developer_account = client.developer_account.create_application(
@@ -56,7 +56,7 @@ class TestDeveloperAccount:
         )
         assert_matches_type(DeveloperApplicationModel, developer_account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_create_application(self, client: SlashSDK) -> None:
         response = client.developer_account.with_raw_response.create_application(
@@ -76,7 +76,7 @@ class TestDeveloperAccount:
         developer_account = response.parse()
         assert_matches_type(DeveloperApplicationModel, developer_account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_create_application(self, client: SlashSDK) -> None:
         with client.developer_account.with_streaming_response.create_application(
@@ -98,7 +98,7 @@ class TestDeveloperAccount:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_create_application(self, client: SlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `developer_account_id` but received ''"):
@@ -116,9 +116,11 @@ class TestDeveloperAccount:
 
 
 class TestAsyncDeveloperAccount:
-    parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=["loose", "strict"])
+    parametrize = pytest.mark.parametrize(
+        "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
+    )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create_application(self, async_client: AsyncSlashSDK) -> None:
         developer_account = await async_client.developer_account.create_application(
@@ -134,7 +136,7 @@ class TestAsyncDeveloperAccount:
         )
         assert_matches_type(DeveloperApplicationModel, developer_account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create_application_with_all_params(self, async_client: AsyncSlashSDK) -> None:
         developer_account = await async_client.developer_account.create_application(
@@ -155,7 +157,7 @@ class TestAsyncDeveloperAccount:
         )
         assert_matches_type(DeveloperApplicationModel, developer_account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_create_application(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.developer_account.with_raw_response.create_application(
@@ -175,7 +177,7 @@ class TestAsyncDeveloperAccount:
         developer_account = await response.parse()
         assert_matches_type(DeveloperApplicationModel, developer_account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_create_application(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.developer_account.with_streaming_response.create_application(
@@ -197,7 +199,7 @@ class TestAsyncDeveloperAccount:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_create_application(self, async_client: AsyncSlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `developer_account_id` but received ''"):

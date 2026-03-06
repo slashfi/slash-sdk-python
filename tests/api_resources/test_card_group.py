@@ -21,7 +21,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestCardGroup:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create(self, client: SlashSDK) -> None:
         card_group = client.card_group.create(
@@ -29,7 +29,7 @@ class TestCardGroup:
         )
         assert_matches_type(CardGroup, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create_with_all_params(self, client: SlashSDK) -> None:
         card_group = client.card_group.create(
@@ -76,7 +76,7 @@ class TestCardGroup:
         )
         assert_matches_type(CardGroup, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_create(self, client: SlashSDK) -> None:
         response = client.card_group.with_raw_response.create(
@@ -88,7 +88,7 @@ class TestCardGroup:
         card_group = response.parse()
         assert_matches_type(CardGroup, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_create(self, client: SlashSDK) -> None:
         with client.card_group.with_streaming_response.create(
@@ -102,7 +102,7 @@ class TestCardGroup:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_retrieve(self, client: SlashSDK) -> None:
         card_group = client.card_group.retrieve(
@@ -110,7 +110,7 @@ class TestCardGroup:
         )
         assert_matches_type(CardGroup, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_retrieve(self, client: SlashSDK) -> None:
         response = client.card_group.with_raw_response.retrieve(
@@ -122,7 +122,7 @@ class TestCardGroup:
         card_group = response.parse()
         assert_matches_type(CardGroup, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_retrieve(self, client: SlashSDK) -> None:
         with client.card_group.with_streaming_response.retrieve(
@@ -136,7 +136,7 @@ class TestCardGroup:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_retrieve(self, client: SlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `card_group_id` but received ''"):
@@ -144,7 +144,7 @@ class TestCardGroup:
                 "",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_update(self, client: SlashSDK) -> None:
         card_group = client.card_group.update(
@@ -152,7 +152,7 @@ class TestCardGroup:
         )
         assert_matches_type(CardGroup, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_update_with_all_params(self, client: SlashSDK) -> None:
         card_group = client.card_group.update(
@@ -199,7 +199,7 @@ class TestCardGroup:
         )
         assert_matches_type(CardGroup, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_update(self, client: SlashSDK) -> None:
         response = client.card_group.with_raw_response.update(
@@ -211,7 +211,7 @@ class TestCardGroup:
         card_group = response.parse()
         assert_matches_type(CardGroup, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_update(self, client: SlashSDK) -> None:
         with client.card_group.with_streaming_response.update(
@@ -225,7 +225,7 @@ class TestCardGroup:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_update(self, client: SlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `card_group_id` but received ''"):
@@ -233,13 +233,13 @@ class TestCardGroup:
                 card_group_id="",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list(self, client: SlashSDK) -> None:
         card_group = client.card_group.list()
         assert_matches_type(CardGroupListResponse, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_with_all_params(self, client: SlashSDK) -> None:
         card_group = client.card_group.list(
@@ -248,7 +248,7 @@ class TestCardGroup:
         )
         assert_matches_type(CardGroupListResponse, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_list(self, client: SlashSDK) -> None:
         response = client.card_group.with_raw_response.list()
@@ -258,7 +258,7 @@ class TestCardGroup:
         card_group = response.parse()
         assert_matches_type(CardGroupListResponse, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_list(self, client: SlashSDK) -> None:
         with client.card_group.with_streaming_response.list() as response:
@@ -270,7 +270,7 @@ class TestCardGroup:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_get_utilization(self, client: SlashSDK) -> None:
         card_group = client.card_group.get_utilization(
@@ -278,7 +278,7 @@ class TestCardGroup:
         )
         assert_matches_type(CardGroupUtilization, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_get_utilization(self, client: SlashSDK) -> None:
         response = client.card_group.with_raw_response.get_utilization(
@@ -290,7 +290,7 @@ class TestCardGroup:
         card_group = response.parse()
         assert_matches_type(CardGroupUtilization, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_get_utilization(self, client: SlashSDK) -> None:
         with client.card_group.with_streaming_response.get_utilization(
@@ -304,7 +304,7 @@ class TestCardGroup:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_get_utilization(self, client: SlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `card_group_id` but received ''"):
@@ -314,9 +314,11 @@ class TestCardGroup:
 
 
 class TestAsyncCardGroup:
-    parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=["loose", "strict"])
+    parametrize = pytest.mark.parametrize(
+        "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
+    )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create(self, async_client: AsyncSlashSDK) -> None:
         card_group = await async_client.card_group.create(
@@ -324,7 +326,7 @@ class TestAsyncCardGroup:
         )
         assert_matches_type(CardGroup, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncSlashSDK) -> None:
         card_group = await async_client.card_group.create(
@@ -371,7 +373,7 @@ class TestAsyncCardGroup:
         )
         assert_matches_type(CardGroup, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.card_group.with_raw_response.create(
@@ -383,7 +385,7 @@ class TestAsyncCardGroup:
         card_group = await response.parse()
         assert_matches_type(CardGroup, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.card_group.with_streaming_response.create(
@@ -397,7 +399,7 @@ class TestAsyncCardGroup:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_retrieve(self, async_client: AsyncSlashSDK) -> None:
         card_group = await async_client.card_group.retrieve(
@@ -405,7 +407,7 @@ class TestAsyncCardGroup:
         )
         assert_matches_type(CardGroup, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_retrieve(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.card_group.with_raw_response.retrieve(
@@ -417,7 +419,7 @@ class TestAsyncCardGroup:
         card_group = await response.parse()
         assert_matches_type(CardGroup, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_retrieve(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.card_group.with_streaming_response.retrieve(
@@ -431,7 +433,7 @@ class TestAsyncCardGroup:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_retrieve(self, async_client: AsyncSlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `card_group_id` but received ''"):
@@ -439,7 +441,7 @@ class TestAsyncCardGroup:
                 "",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_update(self, async_client: AsyncSlashSDK) -> None:
         card_group = await async_client.card_group.update(
@@ -447,7 +449,7 @@ class TestAsyncCardGroup:
         )
         assert_matches_type(CardGroup, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_update_with_all_params(self, async_client: AsyncSlashSDK) -> None:
         card_group = await async_client.card_group.update(
@@ -494,7 +496,7 @@ class TestAsyncCardGroup:
         )
         assert_matches_type(CardGroup, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_update(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.card_group.with_raw_response.update(
@@ -506,7 +508,7 @@ class TestAsyncCardGroup:
         card_group = await response.parse()
         assert_matches_type(CardGroup, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_update(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.card_group.with_streaming_response.update(
@@ -520,7 +522,7 @@ class TestAsyncCardGroup:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_update(self, async_client: AsyncSlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `card_group_id` but received ''"):
@@ -528,13 +530,13 @@ class TestAsyncCardGroup:
                 card_group_id="",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list(self, async_client: AsyncSlashSDK) -> None:
         card_group = await async_client.card_group.list()
         assert_matches_type(CardGroupListResponse, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncSlashSDK) -> None:
         card_group = await async_client.card_group.list(
@@ -543,7 +545,7 @@ class TestAsyncCardGroup:
         )
         assert_matches_type(CardGroupListResponse, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.card_group.with_raw_response.list()
@@ -553,7 +555,7 @@ class TestAsyncCardGroup:
         card_group = await response.parse()
         assert_matches_type(CardGroupListResponse, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.card_group.with_streaming_response.list() as response:
@@ -565,7 +567,7 @@ class TestAsyncCardGroup:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_get_utilization(self, async_client: AsyncSlashSDK) -> None:
         card_group = await async_client.card_group.get_utilization(
@@ -573,7 +575,7 @@ class TestAsyncCardGroup:
         )
         assert_matches_type(CardGroupUtilization, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_get_utilization(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.card_group.with_raw_response.get_utilization(
@@ -585,7 +587,7 @@ class TestAsyncCardGroup:
         card_group = await response.parse()
         assert_matches_type(CardGroupUtilization, card_group, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_get_utilization(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.card_group.with_streaming_response.get_utilization(
@@ -599,7 +601,7 @@ class TestAsyncCardGroup:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_get_utilization(self, async_client: AsyncSlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `card_group_id` but received ''"):

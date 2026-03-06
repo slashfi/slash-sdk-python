@@ -17,13 +17,13 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestPay:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_retrieve(self, client: SlashSDK) -> None:
         pay = client.pay.retrieve()
         assert_matches_type(SlashHandle, pay, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_retrieve(self, client: SlashSDK) -> None:
         response = client.pay.with_raw_response.retrieve()
@@ -33,7 +33,7 @@ class TestPay:
         pay = response.parse()
         assert_matches_type(SlashHandle, pay, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_retrieve(self, client: SlashSDK) -> None:
         with client.pay.with_streaming_response.retrieve() as response:
@@ -45,7 +45,7 @@ class TestPay:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_send(self, client: SlashSDK) -> None:
         pay = client.pay.send(
@@ -54,7 +54,7 @@ class TestPay:
         )
         assert_matches_type(PaySendResponse, pay, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_send_with_all_params(self, client: SlashSDK) -> None:
         pay = client.pay.send(
@@ -65,7 +65,7 @@ class TestPay:
         )
         assert_matches_type(PaySendResponse, pay, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_send(self, client: SlashSDK) -> None:
         response = client.pay.with_raw_response.send(
@@ -78,7 +78,7 @@ class TestPay:
         pay = response.parse()
         assert_matches_type(PaySendResponse, pay, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_send(self, client: SlashSDK) -> None:
         with client.pay.with_streaming_response.send(
@@ -95,15 +95,17 @@ class TestPay:
 
 
 class TestAsyncPay:
-    parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=["loose", "strict"])
+    parametrize = pytest.mark.parametrize(
+        "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
+    )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_retrieve(self, async_client: AsyncSlashSDK) -> None:
         pay = await async_client.pay.retrieve()
         assert_matches_type(SlashHandle, pay, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_retrieve(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.pay.with_raw_response.retrieve()
@@ -113,7 +115,7 @@ class TestAsyncPay:
         pay = await response.parse()
         assert_matches_type(SlashHandle, pay, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_retrieve(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.pay.with_streaming_response.retrieve() as response:
@@ -125,7 +127,7 @@ class TestAsyncPay:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_send(self, async_client: AsyncSlashSDK) -> None:
         pay = await async_client.pay.send(
@@ -134,7 +136,7 @@ class TestAsyncPay:
         )
         assert_matches_type(PaySendResponse, pay, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_send_with_all_params(self, async_client: AsyncSlashSDK) -> None:
         pay = await async_client.pay.send(
@@ -145,7 +147,7 @@ class TestAsyncPay:
         )
         assert_matches_type(PaySendResponse, pay, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_send(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.pay.with_raw_response.send(
@@ -158,7 +160,7 @@ class TestAsyncPay:
         pay = await response.parse()
         assert_matches_type(PaySendResponse, pay, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_send(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.pay.with_streaming_response.send(

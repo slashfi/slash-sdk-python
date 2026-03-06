@@ -17,7 +17,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestCrypto:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create_offramp(self, client: SlashSDK) -> None:
         crypto = client.crypto.create_offramp(
@@ -27,7 +27,7 @@ class TestCrypto:
         )
         assert_matches_type(CryptoCreateOfframpResponse, crypto, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_create_offramp(self, client: SlashSDK) -> None:
         response = client.crypto.with_raw_response.create_offramp(
@@ -41,7 +41,7 @@ class TestCrypto:
         crypto = response.parse()
         assert_matches_type(CryptoCreateOfframpResponse, crypto, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_create_offramp(self, client: SlashSDK) -> None:
         with client.crypto.with_streaming_response.create_offramp(
@@ -59,9 +59,11 @@ class TestCrypto:
 
 
 class TestAsyncCrypto:
-    parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=["loose", "strict"])
+    parametrize = pytest.mark.parametrize(
+        "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
+    )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create_offramp(self, async_client: AsyncSlashSDK) -> None:
         crypto = await async_client.crypto.create_offramp(
@@ -71,7 +73,7 @@ class TestAsyncCrypto:
         )
         assert_matches_type(CryptoCreateOfframpResponse, crypto, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_create_offramp(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.crypto.with_raw_response.create_offramp(
@@ -85,7 +87,7 @@ class TestAsyncCrypto:
         crypto = await response.parse()
         assert_matches_type(CryptoCreateOfframpResponse, crypto, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_create_offramp(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.crypto.with_streaming_response.create_offramp(

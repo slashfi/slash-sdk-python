@@ -8,6 +8,8 @@ __all__ = ["SlashHandle"]
 
 
 class SlashHandle(BaseModel):
+    """Details about a single SlashHandle"""
+
     id: str
     """The id of the SlashHandle"""
 
