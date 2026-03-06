@@ -17,7 +17,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestAccount:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_retrieve(self, client: SlashSDK) -> None:
         account = client.account.retrieve(
@@ -25,7 +25,7 @@ class TestAccount:
         )
         assert_matches_type(Account, account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_retrieve(self, client: SlashSDK) -> None:
         response = client.account.with_raw_response.retrieve(
@@ -37,7 +37,7 @@ class TestAccount:
         account = response.parse()
         assert_matches_type(Account, account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_retrieve(self, client: SlashSDK) -> None:
         with client.account.with_streaming_response.retrieve(
@@ -51,7 +51,7 @@ class TestAccount:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_retrieve(self, client: SlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `account_id` but received ''"):
@@ -59,13 +59,13 @@ class TestAccount:
                 "",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list(self, client: SlashSDK) -> None:
         account = client.account.list()
         assert_matches_type(AccountListResponse, account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_with_all_params(self, client: SlashSDK) -> None:
         account = client.account.list(
@@ -73,7 +73,7 @@ class TestAccount:
         )
         assert_matches_type(AccountListResponse, account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_list(self, client: SlashSDK) -> None:
         response = client.account.with_raw_response.list()
@@ -83,7 +83,7 @@ class TestAccount:
         account = response.parse()
         assert_matches_type(AccountListResponse, account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_list(self, client: SlashSDK) -> None:
         with client.account.with_streaming_response.list() as response:
@@ -95,7 +95,7 @@ class TestAccount:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_retrieve_balance(self, client: SlashSDK) -> None:
         account = client.account.retrieve_balance(
@@ -103,7 +103,7 @@ class TestAccount:
         )
         assert_matches_type(AccountRetrieveBalanceResponse, account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_retrieve_balance(self, client: SlashSDK) -> None:
         response = client.account.with_raw_response.retrieve_balance(
@@ -115,7 +115,7 @@ class TestAccount:
         account = response.parse()
         assert_matches_type(AccountRetrieveBalanceResponse, account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_retrieve_balance(self, client: SlashSDK) -> None:
         with client.account.with_streaming_response.retrieve_balance(
@@ -129,7 +129,7 @@ class TestAccount:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_retrieve_balance(self, client: SlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `account_id` but received ''"):
@@ -143,7 +143,7 @@ class TestAsyncAccount:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_retrieve(self, async_client: AsyncSlashSDK) -> None:
         account = await async_client.account.retrieve(
@@ -151,7 +151,7 @@ class TestAsyncAccount:
         )
         assert_matches_type(Account, account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_retrieve(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.account.with_raw_response.retrieve(
@@ -163,7 +163,7 @@ class TestAsyncAccount:
         account = await response.parse()
         assert_matches_type(Account, account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_retrieve(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.account.with_streaming_response.retrieve(
@@ -177,7 +177,7 @@ class TestAsyncAccount:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_retrieve(self, async_client: AsyncSlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `account_id` but received ''"):
@@ -185,13 +185,13 @@ class TestAsyncAccount:
                 "",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list(self, async_client: AsyncSlashSDK) -> None:
         account = await async_client.account.list()
         assert_matches_type(AccountListResponse, account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncSlashSDK) -> None:
         account = await async_client.account.list(
@@ -199,7 +199,7 @@ class TestAsyncAccount:
         )
         assert_matches_type(AccountListResponse, account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.account.with_raw_response.list()
@@ -209,7 +209,7 @@ class TestAsyncAccount:
         account = await response.parse()
         assert_matches_type(AccountListResponse, account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.account.with_streaming_response.list() as response:
@@ -221,7 +221,7 @@ class TestAsyncAccount:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_retrieve_balance(self, async_client: AsyncSlashSDK) -> None:
         account = await async_client.account.retrieve_balance(
@@ -229,7 +229,7 @@ class TestAsyncAccount:
         )
         assert_matches_type(AccountRetrieveBalanceResponse, account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_retrieve_balance(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.account.with_raw_response.retrieve_balance(
@@ -241,7 +241,7 @@ class TestAsyncAccount:
         account = await response.parse()
         assert_matches_type(AccountRetrieveBalanceResponse, account, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_retrieve_balance(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.account.with_streaming_response.retrieve_balance(
@@ -255,7 +255,7 @@ class TestAsyncAccount:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_retrieve_balance(self, async_client: AsyncSlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `account_id` but received ''"):

@@ -26,6 +26,8 @@ __all__ = [
 
 
 class DepositAccountDepositAccount(deposit_account.DepositAccount):
+    """A deposit account. For example, a checking, savings or money market account."""
+
     available_balance: float = FieldInfo(alias="availableBalance")
     """
     The available balance of the account in the standard unit of the currency (e.g.,
@@ -47,6 +49,8 @@ class DepositAccount(BaseModel):
 
 
 class LoanAccountLoanAccount(loan_account.LoanAccount):
+    """A loan account. For example, mortgage, student loan or auto loan."""
+
     interest_rate: float = FieldInfo(alias="interestRate")
     """The interest rate on the loan as a floating point number.
 
@@ -117,6 +121,11 @@ class LoanAccount(BaseModel):
 
 
 class LocAccountLocAccount(LineOfCreditAccount):
+    """A line-of-credit account.
+
+    For example, a credit card or home equity line of credit.
+    """
+
     available_credit: float = FieldInfo(alias="availableCredit")
     """
     The currently available credit on the account in the standard unit of the
@@ -278,6 +287,8 @@ class InvestmentAccountInvestmentAccountHolding(BaseModel):
 
 
 class InvestmentAccountInvestmentAccount(investment_account.InvestmentAccount):
+    """An investment account. For example, a 401K or IRA."""
+
     available_cash_balance: float = FieldInfo(alias="availableCashBalance")
     """
     The amount of cash available in the account across all sub-accounts, including

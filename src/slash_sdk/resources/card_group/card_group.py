@@ -7,7 +7,7 @@ from typing import Optional
 import httpx
 
 from ...types import card_group_list_params, card_group_create_params, card_group_update_params
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ..._types import Body, Omit, Query, Headers, NotGiven, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -62,14 +62,14 @@ class CardGroupResource(SyncAPIResource):
         self,
         *,
         name: str,
-        spending_constraint: SpendingConstraintParam | NotGiven = NOT_GIVEN,
-        virtual_account_id: str | NotGiven = NOT_GIVEN,
+        spending_constraint: SpendingConstraintParam | Omit = omit,
+        virtual_account_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CardGroup:
         """
         Create a card group.
@@ -113,7 +113,7 @@ class CardGroupResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CardGroup:
         """
         Fetch details for a single card group by card group ID
@@ -141,14 +141,14 @@ class CardGroupResource(SyncAPIResource):
         self,
         card_group_id: str,
         *,
-        name: str | NotGiven = NOT_GIVEN,
-        spending_constraint: Optional[SpendingConstraintParam] | NotGiven = NOT_GIVEN,
+        name: str | Omit = omit,
+        spending_constraint: Optional[SpendingConstraintParam] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CardGroup:
         """
         Update a card group
@@ -185,14 +185,14 @@ class CardGroupResource(SyncAPIResource):
     def list(
         self,
         *,
-        cursor: str | NotGiven = NOT_GIVEN,
-        filter_name: str | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        filter_name: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CardGroupListResponse:
         """
         Retrieve the list of card groups that the user owns.
@@ -237,7 +237,7 @@ class CardGroupResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CardGroupUtilization:
         """
         Get a card group's current utilization
@@ -290,14 +290,14 @@ class AsyncCardGroupResource(AsyncAPIResource):
         self,
         *,
         name: str,
-        spending_constraint: SpendingConstraintParam | NotGiven = NOT_GIVEN,
-        virtual_account_id: str | NotGiven = NOT_GIVEN,
+        spending_constraint: SpendingConstraintParam | Omit = omit,
+        virtual_account_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CardGroup:
         """
         Create a card group.
@@ -341,7 +341,7 @@ class AsyncCardGroupResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CardGroup:
         """
         Fetch details for a single card group by card group ID
@@ -369,14 +369,14 @@ class AsyncCardGroupResource(AsyncAPIResource):
         self,
         card_group_id: str,
         *,
-        name: str | NotGiven = NOT_GIVEN,
-        spending_constraint: Optional[SpendingConstraintParam] | NotGiven = NOT_GIVEN,
+        name: str | Omit = omit,
+        spending_constraint: Optional[SpendingConstraintParam] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CardGroup:
         """
         Update a card group
@@ -413,14 +413,14 @@ class AsyncCardGroupResource(AsyncAPIResource):
     async def list(
         self,
         *,
-        cursor: str | NotGiven = NOT_GIVEN,
-        filter_name: str | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        filter_name: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CardGroupListResponse:
         """
         Retrieve the list of card groups that the user owns.
@@ -465,7 +465,7 @@ class AsyncCardGroupResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CardGroupUtilization:
         """
         Get a card group's current utilization

@@ -5,13 +5,14 @@ from __future__ import annotations
 from typing import List
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
+from .._types import SequenceNotStr
 from .._utils import PropertyInfo
 
 __all__ = ["DeveloperApplicationDataParam"]
 
 
 class DeveloperApplicationDataParam(TypedDict, total=False):
-    allowed_origins: Required[Annotated[List[str], PropertyInfo(alias="allowedOrigins")]]
+    allowed_origins: Required[Annotated[SequenceNotStr[str], PropertyInfo(alias="allowedOrigins")]]
     """
     The URLs or IP addresses that the application is allowed to make token exchange
     requests from. If the application makes a token exchange request from a URL that
@@ -98,7 +99,7 @@ class DeveloperApplicationDataParam(TypedDict, total=False):
     they authorize the application.
     """
 
-    redirect_uris: Annotated[List[str], PropertyInfo(alias="redirectUris")]
+    redirect_uris: Annotated[SequenceNotStr[str], PropertyInfo(alias="redirectUris")]
     """
     The URLs of the application's redirect URIs that will be used when the
     application is authorized. The redirect URIs must match the ones registered
@@ -111,7 +112,7 @@ class DeveloperApplicationDataParam(TypedDict, total=False):
     they authorize the application.
     """
 
-    test_user_emails: Annotated[List[str], PropertyInfo(alias="testUserEmails")]
+    test_user_emails: Annotated[SequenceNotStr[str], PropertyInfo(alias="testUserEmails")]
     """
     A list of users that are allowed to test the application before it is approved
     for production. Max 10 users.

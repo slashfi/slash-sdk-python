@@ -11,7 +11,7 @@ from ..types import (
     virtual_account_create_params,
     virtual_account_update_params,
 )
-from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from .._types import Body, Omit, Query, Headers, NotGiven, omit, not_given
 from .._utils import required_args, maybe_transform, async_maybe_transform
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
@@ -56,13 +56,13 @@ class VirtualAccountResource(SyncAPIResource):
         *,
         account_id: str,
         name: str,
-        commission_details: CommissionDetailsParam | NotGiven = NOT_GIVEN,
+        commission_details: CommissionDetailsParam | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VirtualAccountCreateResponse:
         """
         Create a virtual account
@@ -108,7 +108,7 @@ class VirtualAccountResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VirtualAccount:
         """
         Retrieve a single virtual account by its ID.
@@ -138,14 +138,14 @@ class VirtualAccountResource(SyncAPIResource):
         virtual_account_id: str,
         *,
         action: Literal["update"],
-        commission_details: CommissionDetailsParam | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
+        commission_details: CommissionDetailsParam | Omit = omit,
+        name: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VirtualAccountUpdateResponse:
         """Update an existing virtual account
 
@@ -178,7 +178,7 @@ class VirtualAccountResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VirtualAccountUpdateResponse:
         """Update an existing virtual account
 
@@ -204,14 +204,14 @@ class VirtualAccountResource(SyncAPIResource):
         virtual_account_id: str,
         *,
         action: Literal["update"] | Literal["close"],
-        commission_details: CommissionDetailsParam | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
+        commission_details: CommissionDetailsParam | Omit = omit,
+        name: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VirtualAccountUpdateResponse:
         if not virtual_account_id:
             raise ValueError(f"Expected a non-empty value for `virtual_account_id` but received {virtual_account_id!r}")
@@ -234,15 +234,15 @@ class VirtualAccountResource(SyncAPIResource):
     def list(
         self,
         *,
-        cursor: str | NotGiven = NOT_GIVEN,
-        filter_account_id: str | NotGiven = NOT_GIVEN,
-        filter_include_closed_accounts: Literal["true", "false"] | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        filter_account_id: str | Omit = omit,
+        filter_include_closed_accounts: Literal["true", "false"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VirtualAccountListResponse:
         """Retrieve a list of virtual accounts under an account.
 
@@ -316,13 +316,13 @@ class AsyncVirtualAccountResource(AsyncAPIResource):
         *,
         account_id: str,
         name: str,
-        commission_details: CommissionDetailsParam | NotGiven = NOT_GIVEN,
+        commission_details: CommissionDetailsParam | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VirtualAccountCreateResponse:
         """
         Create a virtual account
@@ -368,7 +368,7 @@ class AsyncVirtualAccountResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VirtualAccount:
         """
         Retrieve a single virtual account by its ID.
@@ -398,14 +398,14 @@ class AsyncVirtualAccountResource(AsyncAPIResource):
         virtual_account_id: str,
         *,
         action: Literal["update"],
-        commission_details: CommissionDetailsParam | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
+        commission_details: CommissionDetailsParam | Omit = omit,
+        name: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VirtualAccountUpdateResponse:
         """Update an existing virtual account
 
@@ -438,7 +438,7 @@ class AsyncVirtualAccountResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VirtualAccountUpdateResponse:
         """Update an existing virtual account
 
@@ -464,14 +464,14 @@ class AsyncVirtualAccountResource(AsyncAPIResource):
         virtual_account_id: str,
         *,
         action: Literal["update"] | Literal["close"],
-        commission_details: CommissionDetailsParam | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
+        commission_details: CommissionDetailsParam | Omit = omit,
+        name: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VirtualAccountUpdateResponse:
         if not virtual_account_id:
             raise ValueError(f"Expected a non-empty value for `virtual_account_id` but received {virtual_account_id!r}")
@@ -494,15 +494,15 @@ class AsyncVirtualAccountResource(AsyncAPIResource):
     async def list(
         self,
         *,
-        cursor: str | NotGiven = NOT_GIVEN,
-        filter_account_id: str | NotGiven = NOT_GIVEN,
-        filter_include_closed_accounts: Literal["true", "false"] | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        filter_account_id: str | Omit = omit,
+        filter_include_closed_accounts: Literal["true", "false"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VirtualAccountListResponse:
         """Retrieve a list of virtual accounts under an account.
 

@@ -9,6 +9,8 @@ __all__ = ["CommissionRule"]
 
 
 class CommissionRule(BaseModel):
+    """The virtual account commission rule object"""
+
     id: str
     """The ID of the commission rule"""
 

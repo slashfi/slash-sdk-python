@@ -17,7 +17,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestSpendingConstraint:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_update_full(self, client: SlashSDK) -> None:
         spending_constraint = client.card_group.spending_constraint.update_full(
@@ -25,7 +25,7 @@ class TestSpendingConstraint:
         )
         assert_matches_type(SpendingConstraint, spending_constraint, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_update_full_with_all_params(self, client: SlashSDK) -> None:
         spending_constraint = client.card_group.spending_constraint.update_full(
@@ -69,7 +69,7 @@ class TestSpendingConstraint:
         )
         assert_matches_type(SpendingConstraint, spending_constraint, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_update_full(self, client: SlashSDK) -> None:
         response = client.card_group.spending_constraint.with_raw_response.update_full(
@@ -81,7 +81,7 @@ class TestSpendingConstraint:
         spending_constraint = response.parse()
         assert_matches_type(SpendingConstraint, spending_constraint, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_update_full(self, client: SlashSDK) -> None:
         with client.card_group.spending_constraint.with_streaming_response.update_full(
@@ -95,7 +95,7 @@ class TestSpendingConstraint:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_update_full(self, client: SlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `card_group_id` but received ''"):
@@ -103,7 +103,7 @@ class TestSpendingConstraint:
                 card_group_id="",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_update_partial(self, client: SlashSDK) -> None:
         spending_constraint = client.card_group.spending_constraint.update_partial(
@@ -111,7 +111,7 @@ class TestSpendingConstraint:
         )
         assert_matches_type(SpendingConstraint, spending_constraint, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_update_partial_with_all_params(self, client: SlashSDK) -> None:
         spending_constraint = client.card_group.spending_constraint.update_partial(
@@ -155,7 +155,7 @@ class TestSpendingConstraint:
         )
         assert_matches_type(SpendingConstraint, spending_constraint, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_update_partial(self, client: SlashSDK) -> None:
         response = client.card_group.spending_constraint.with_raw_response.update_partial(
@@ -167,7 +167,7 @@ class TestSpendingConstraint:
         spending_constraint = response.parse()
         assert_matches_type(SpendingConstraint, spending_constraint, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_update_partial(self, client: SlashSDK) -> None:
         with client.card_group.spending_constraint.with_streaming_response.update_partial(
@@ -181,7 +181,7 @@ class TestSpendingConstraint:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_update_partial(self, client: SlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `card_group_id` but received ''"):
@@ -195,7 +195,7 @@ class TestAsyncSpendingConstraint:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_update_full(self, async_client: AsyncSlashSDK) -> None:
         spending_constraint = await async_client.card_group.spending_constraint.update_full(
@@ -203,7 +203,7 @@ class TestAsyncSpendingConstraint:
         )
         assert_matches_type(SpendingConstraint, spending_constraint, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_update_full_with_all_params(self, async_client: AsyncSlashSDK) -> None:
         spending_constraint = await async_client.card_group.spending_constraint.update_full(
@@ -247,7 +247,7 @@ class TestAsyncSpendingConstraint:
         )
         assert_matches_type(SpendingConstraint, spending_constraint, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_update_full(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.card_group.spending_constraint.with_raw_response.update_full(
@@ -259,7 +259,7 @@ class TestAsyncSpendingConstraint:
         spending_constraint = await response.parse()
         assert_matches_type(SpendingConstraint, spending_constraint, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_update_full(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.card_group.spending_constraint.with_streaming_response.update_full(
@@ -273,7 +273,7 @@ class TestAsyncSpendingConstraint:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_update_full(self, async_client: AsyncSlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `card_group_id` but received ''"):
@@ -281,7 +281,7 @@ class TestAsyncSpendingConstraint:
                 card_group_id="",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_update_partial(self, async_client: AsyncSlashSDK) -> None:
         spending_constraint = await async_client.card_group.spending_constraint.update_partial(
@@ -289,7 +289,7 @@ class TestAsyncSpendingConstraint:
         )
         assert_matches_type(SpendingConstraint, spending_constraint, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_update_partial_with_all_params(self, async_client: AsyncSlashSDK) -> None:
         spending_constraint = await async_client.card_group.spending_constraint.update_partial(
@@ -333,7 +333,7 @@ class TestAsyncSpendingConstraint:
         )
         assert_matches_type(SpendingConstraint, spending_constraint, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_update_partial(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.card_group.spending_constraint.with_raw_response.update_partial(
@@ -345,7 +345,7 @@ class TestAsyncSpendingConstraint:
         spending_constraint = await response.parse()
         assert_matches_type(SpendingConstraint, spending_constraint, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_update_partial(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.card_group.spending_constraint.with_streaming_response.update_partial(
@@ -359,7 +359,7 @@ class TestAsyncSpendingConstraint:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_update_partial(self, async_client: AsyncSlashSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `card_group_id` but received ''"):

@@ -7,7 +7,7 @@ from typing_extensions import Literal, overload
 import httpx
 
 from ...types import oauth2_get_token_params
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ..._types import Body, Omit, Query, Headers, NotGiven, omit, not_given
 from ..._utils import required_args, maybe_transform, async_maybe_transform
 from .userinfo import (
     UserinfoResource,
@@ -62,15 +62,15 @@ class Oauth2Resource(SyncAPIResource):
         code: str,
         grant_type: Literal["authorization_code"],
         redirect_uri: str,
-        code_verifier: str | NotGiven = NOT_GIVEN,
-        prompt: str | NotGiven = NOT_GIVEN,
-        scope: str | NotGiven = NOT_GIVEN,
+        code_verifier: str | Omit = omit,
+        prompt: str | Omit = omit,
+        scope: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Oauth2GetTokenResponse:
         """
         Get or refresh an access token
@@ -98,17 +98,17 @@ class Oauth2Resource(SyncAPIResource):
         *,
         grant_type: Literal["refresh_token"],
         refresh_token: str,
-        code: str | NotGiven = NOT_GIVEN,
-        code_verifier: str | NotGiven = NOT_GIVEN,
-        prompt: str | NotGiven = NOT_GIVEN,
-        redirect_uri: str | NotGiven = NOT_GIVEN,
-        scope: str | NotGiven = NOT_GIVEN,
+        code: str | Omit = omit,
+        code_verifier: str | Omit = omit,
+        prompt: str | Omit = omit,
+        redirect_uri: str | Omit = omit,
+        scope: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Oauth2GetTokenResponse:
         """
         Get or refresh an access token
@@ -138,19 +138,19 @@ class Oauth2Resource(SyncAPIResource):
     def get_token(
         self,
         *,
-        code: str | NotGiven = NOT_GIVEN,
+        code: str | Omit = omit,
         grant_type: Literal["authorization_code"] | Literal["refresh_token"],
-        redirect_uri: str | NotGiven = NOT_GIVEN,
-        code_verifier: str | NotGiven = NOT_GIVEN,
-        prompt: str | NotGiven = NOT_GIVEN,
-        scope: str | NotGiven = NOT_GIVEN,
-        refresh_token: str | NotGiven = NOT_GIVEN,
+        redirect_uri: str | Omit = omit,
+        code_verifier: str | Omit = omit,
+        prompt: str | Omit = omit,
+        scope: str | Omit = omit,
+        refresh_token: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Oauth2GetTokenResponse:
         return self._post(
             "/oauth2/token",
@@ -204,15 +204,15 @@ class AsyncOauth2Resource(AsyncAPIResource):
         code: str,
         grant_type: Literal["authorization_code"],
         redirect_uri: str,
-        code_verifier: str | NotGiven = NOT_GIVEN,
-        prompt: str | NotGiven = NOT_GIVEN,
-        scope: str | NotGiven = NOT_GIVEN,
+        code_verifier: str | Omit = omit,
+        prompt: str | Omit = omit,
+        scope: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Oauth2GetTokenResponse:
         """
         Get or refresh an access token
@@ -240,17 +240,17 @@ class AsyncOauth2Resource(AsyncAPIResource):
         *,
         grant_type: Literal["refresh_token"],
         refresh_token: str,
-        code: str | NotGiven = NOT_GIVEN,
-        code_verifier: str | NotGiven = NOT_GIVEN,
-        prompt: str | NotGiven = NOT_GIVEN,
-        redirect_uri: str | NotGiven = NOT_GIVEN,
-        scope: str | NotGiven = NOT_GIVEN,
+        code: str | Omit = omit,
+        code_verifier: str | Omit = omit,
+        prompt: str | Omit = omit,
+        redirect_uri: str | Omit = omit,
+        scope: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Oauth2GetTokenResponse:
         """
         Get or refresh an access token
@@ -280,19 +280,19 @@ class AsyncOauth2Resource(AsyncAPIResource):
     async def get_token(
         self,
         *,
-        code: str | NotGiven = NOT_GIVEN,
+        code: str | Omit = omit,
         grant_type: Literal["authorization_code"] | Literal["refresh_token"],
-        redirect_uri: str | NotGiven = NOT_GIVEN,
-        code_verifier: str | NotGiven = NOT_GIVEN,
-        prompt: str | NotGiven = NOT_GIVEN,
-        scope: str | NotGiven = NOT_GIVEN,
-        refresh_token: str | NotGiven = NOT_GIVEN,
+        redirect_uri: str | Omit = omit,
+        code_verifier: str | Omit = omit,
+        prompt: str | Omit = omit,
+        scope: str | Omit = omit,
+        refresh_token: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Oauth2GetTokenResponse:
         return await self._post(
             "/oauth2/token",
