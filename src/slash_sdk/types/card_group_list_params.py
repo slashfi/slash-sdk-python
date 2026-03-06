@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing_extensions import Annotated, TypedDict
+from typing_extensions import Literal, Annotated, TypedDict
 
 from .._utils import PropertyInfo
 
@@ -15,3 +15,12 @@ class CardGroupListParams(TypedDict, total=False):
 
     filter_name: Annotated[str, PropertyInfo(alias="filter:name")]
     """Pass in a name to filter for card groups with a matching name."""
+
+    filter_status: Annotated[Literal["active", "archived"], PropertyInfo(alias="filter:status")]
+    """Filter card groups by status. Defaults to 'active' if not provided."""
+
+    filter_virtual_account_id: Annotated[str, PropertyInfo(alias="filter:virtualAccountId")]
+    """
+    Pass in a virtual account ID to filter for card groups under a specific virtual
+    account.
+    """

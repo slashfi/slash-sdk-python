@@ -32,6 +32,18 @@ class TestTransfer:
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
+    def test_method_create_virtual_account_transfer_with_all_params(self, client: SlashSDK) -> None:
+        transfer = client.transfer.create_virtual_account_transfer(
+            amount_cents=0,
+            destination="destination",
+            source="source",
+            x_idempotency_key="X-Idempotency-Key",
+            memo="memo",
+        )
+        assert_matches_type(TransferCreateVirtualAccountTransferResponse, transfer, path=["response"])
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
     def test_raw_response_create_virtual_account_transfer(self, client: SlashSDK) -> None:
         response = client.transfer.with_raw_response.create_virtual_account_transfer(
             amount_cents=0,
@@ -76,6 +88,18 @@ class TestAsyncTransfer:
             destination="destination",
             source="source",
             x_idempotency_key="X-Idempotency-Key",
+        )
+        assert_matches_type(TransferCreateVirtualAccountTransferResponse, transfer, path=["response"])
+
+    @pytest.mark.skip(reason="Mock server tests are disabled")
+    @parametrize
+    async def test_method_create_virtual_account_transfer_with_all_params(self, async_client: AsyncSlashSDK) -> None:
+        transfer = await async_client.transfer.create_virtual_account_transfer(
+            amount_cents=0,
+            destination="destination",
+            source="source",
+            x_idempotency_key="X-Idempotency-Key",
+            memo="memo",
         )
         assert_matches_type(TransferCreateVirtualAccountTransferResponse, transfer, path=["response"])
 

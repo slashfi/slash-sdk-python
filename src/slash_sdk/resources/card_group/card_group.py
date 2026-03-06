@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from typing import Optional
+from typing_extensions import Literal
 
 import httpx
 
@@ -187,6 +188,8 @@ class CardGroupResource(SyncAPIResource):
         *,
         cursor: str | Omit = omit,
         filter_name: str | Omit = omit,
+        filter_status: Literal["active", "archived"] | Omit = omit,
+        filter_virtual_account_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -201,6 +204,11 @@ class CardGroupResource(SyncAPIResource):
           cursor: A cursor string to fetch the next page of results
 
           filter_name: Pass in a name to filter for card groups with a matching name.
+
+          filter_status: Filter card groups by status. Defaults to 'active' if not provided.
+
+          filter_virtual_account_id: Pass in a virtual account ID to filter for card groups under a specific virtual
+              account.
 
           extra_headers: Send extra headers
 
@@ -221,6 +229,8 @@ class CardGroupResource(SyncAPIResource):
                     {
                         "cursor": cursor,
                         "filter_name": filter_name,
+                        "filter_status": filter_status,
+                        "filter_virtual_account_id": filter_virtual_account_id,
                     },
                     card_group_list_params.CardGroupListParams,
                 ),
@@ -415,6 +425,8 @@ class AsyncCardGroupResource(AsyncAPIResource):
         *,
         cursor: str | Omit = omit,
         filter_name: str | Omit = omit,
+        filter_status: Literal["active", "archived"] | Omit = omit,
+        filter_virtual_account_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -429,6 +441,11 @@ class AsyncCardGroupResource(AsyncAPIResource):
           cursor: A cursor string to fetch the next page of results
 
           filter_name: Pass in a name to filter for card groups with a matching name.
+
+          filter_status: Filter card groups by status. Defaults to 'active' if not provided.
+
+          filter_virtual_account_id: Pass in a virtual account ID to filter for card groups under a specific virtual
+              account.
 
           extra_headers: Send extra headers
 
@@ -449,6 +466,8 @@ class AsyncCardGroupResource(AsyncAPIResource):
                     {
                         "cursor": cursor,
                         "filter_name": filter_name,
+                        "filter_status": filter_status,
+                        "filter_virtual_account_id": filter_virtual_account_id,
                     },
                     card_group_list_params.CardGroupListParams,
                 ),

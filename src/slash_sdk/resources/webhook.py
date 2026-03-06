@@ -95,7 +95,7 @@ class WebhookResource(SyncAPIResource):
         self,
         webhook_id: str,
         *,
-        status: Literal["archived"],
+        status: Literal["active", "paused", "archived"],
         reason: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -105,9 +105,35 @@ class WebhookResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Webhook:
         """
-        Update a webhook endpoint
+        Update a webhook endpoint status.
+
+        **Status transitions:**
+
+        - `active`: Re-enables the endpoint. Use this to:
+          - Unpause a paused endpoint
+          - Re-enable an endpoint that is backing-off or disabled due to delivery
+            failures
+          - When re-enabled, any queued notifications will be sent
+        - `paused`: Pauses the endpoint. While paused:
+          - New notifications are queued (not lost)
+          - No delivery attempts are made
+          - Use `active` to resume and process queued notifications
+        - `archived`: Permanently archives the endpoint (soft delete)
+
+        **Note:** The `backing-off` and `disabled` statuses are system-managed and
+        cannot be set directly. These occur automatically when delivery failures are
+        detected. Use `active` to re-enable.
 
         Args:
+          status:
+              The desired status for the endpoint:
+
+              - `active`: Enable/re-enable the endpoint
+              - `paused`: Pause the endpoint (notifications are queued)
+              - `archived`: Archive the endpoint (soft delete)
+
+          reason: Optional reason for the status change (for audit purposes)
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -251,7 +277,7 @@ class AsyncWebhookResource(AsyncAPIResource):
         self,
         webhook_id: str,
         *,
-        status: Literal["archived"],
+        status: Literal["active", "paused", "archived"],
         reason: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -261,9 +287,35 @@ class AsyncWebhookResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Webhook:
         """
-        Update a webhook endpoint
+        Update a webhook endpoint status.
+
+        **Status transitions:**
+
+        - `active`: Re-enables the endpoint. Use this to:
+          - Unpause a paused endpoint
+          - Re-enable an endpoint that is backing-off or disabled due to delivery
+            failures
+          - When re-enabled, any queued notifications will be sent
+        - `paused`: Pauses the endpoint. While paused:
+          - New notifications are queued (not lost)
+          - No delivery attempts are made
+          - Use `active` to resume and process queued notifications
+        - `archived`: Permanently archives the endpoint (soft delete)
+
+        **Note:** The `backing-off` and `disabled` statuses are system-managed and
+        cannot be set directly. These occur automatically when delivery failures are
+        detected. Use `active` to re-enable.
 
         Args:
+          status:
+              The desired status for the endpoint:
+
+              - `active`: Enable/re-enable the endpoint
+              - `paused`: Pause the endpoint (notifications are queued)
+              - `archived`: Archive the endpoint (soft delete)
+
+          reason: Optional reason for the status change (for audit purposes)
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
