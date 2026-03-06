@@ -50,6 +50,9 @@ class TransactionListParams(TypedDict, total=False):
     legal entity.
     """
 
+    filter_provider_authorization_id: Annotated[str, PropertyInfo(alias="filter:providerAuthorizationId")]
+    """Filter transactions by provider authorization ID"""
+
     filter_status: Annotated[Literal["pending", "posted", "failed"], PropertyInfo(alias="filter:status")]
     """Filter transactions by status"""
 

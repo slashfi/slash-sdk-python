@@ -24,3 +24,6 @@ class TransferCreateVirtualAccountTransferParams(TypedDict, total=False):
     """
 
     x_idempotency_key: Required[Annotated[str, PropertyInfo(alias="X-Idempotency-Key")]]
+
+    memo: str
+    """Optional memo/description for the transfer to help differentiate transactions."""

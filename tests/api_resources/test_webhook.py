@@ -72,7 +72,7 @@ class TestWebhook:
     def test_method_update(self, client: SlashSDK) -> None:
         webhook = client.webhook.update(
             webhook_id="webhookId",
-            status="archived",
+            status="active",
         )
         assert_matches_type(Webhook, webhook, path=["response"])
 
@@ -81,7 +81,7 @@ class TestWebhook:
     def test_method_update_with_all_params(self, client: SlashSDK) -> None:
         webhook = client.webhook.update(
             webhook_id="webhookId",
-            status="archived",
+            status="active",
             reason="reason",
         )
         assert_matches_type(Webhook, webhook, path=["response"])
@@ -91,7 +91,7 @@ class TestWebhook:
     def test_raw_response_update(self, client: SlashSDK) -> None:
         response = client.webhook.with_raw_response.update(
             webhook_id="webhookId",
-            status="archived",
+            status="active",
         )
 
         assert response.is_closed is True
@@ -104,7 +104,7 @@ class TestWebhook:
     def test_streaming_response_update(self, client: SlashSDK) -> None:
         with client.webhook.with_streaming_response.update(
             webhook_id="webhookId",
-            status="archived",
+            status="active",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -120,7 +120,7 @@ class TestWebhook:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `webhook_id` but received ''"):
             client.webhook.with_raw_response.update(
                 webhook_id="",
-                status="archived",
+                status="active",
             )
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
@@ -218,7 +218,7 @@ class TestAsyncWebhook:
     async def test_method_update(self, async_client: AsyncSlashSDK) -> None:
         webhook = await async_client.webhook.update(
             webhook_id="webhookId",
-            status="archived",
+            status="active",
         )
         assert_matches_type(Webhook, webhook, path=["response"])
 
@@ -227,7 +227,7 @@ class TestAsyncWebhook:
     async def test_method_update_with_all_params(self, async_client: AsyncSlashSDK) -> None:
         webhook = await async_client.webhook.update(
             webhook_id="webhookId",
-            status="archived",
+            status="active",
             reason="reason",
         )
         assert_matches_type(Webhook, webhook, path=["response"])
@@ -237,7 +237,7 @@ class TestAsyncWebhook:
     async def test_raw_response_update(self, async_client: AsyncSlashSDK) -> None:
         response = await async_client.webhook.with_raw_response.update(
             webhook_id="webhookId",
-            status="archived",
+            status="active",
         )
 
         assert response.is_closed is True
@@ -250,7 +250,7 @@ class TestAsyncWebhook:
     async def test_streaming_response_update(self, async_client: AsyncSlashSDK) -> None:
         async with async_client.webhook.with_streaming_response.update(
             webhook_id="webhookId",
-            status="archived",
+            status="active",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -266,7 +266,7 @@ class TestAsyncWebhook:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `webhook_id` but received ''"):
             await async_client.webhook.with_raw_response.update(
                 webhook_id="",
-                status="archived",
+                status="active",
             )
 
     @pytest.mark.skip(reason="Mock server tests are disabled")

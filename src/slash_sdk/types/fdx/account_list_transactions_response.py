@@ -41,7 +41,7 @@ class TransactionDepositTransactionDepositTransaction(BaseModel):
     description: str
     """A description of the transaction."""
 
-    status: Literal["AUTHORIZATION", "MEMO", "PENDING", "PENDING_APPROVAL", "POSTED"]
+    status: Literal["AUTHORIZATION", "MEMO", "PENDING", "PENDING_APPROVAL", "POSTED", "IN_REVIEW"]
     """The status of the transaction. This will always be PENDING or POSTED."""
 
     transaction_id: str = FieldInfo(alias="transactionId")
@@ -113,7 +113,7 @@ class TransactionLoanTransactionLoanTransaction(BaseModel):
     description: str
     """A description of the transaction."""
 
-    status: Literal["AUTHORIZATION", "MEMO", "PENDING", "POSTED"]
+    status: Literal["AUTHORIZATION", "MEMO", "PENDING", "IN_REVIEW", "POSTED"]
     """The status of the transaction. This will always be PENDING or POSTED."""
 
     transaction_id: str = FieldInfo(alias="transactionId")
@@ -190,7 +190,7 @@ class TransactionLocTransactionLocTransaction(BaseModel):
     description: str
     """A description of the transaction."""
 
-    status: Literal["AUTHORIZATION", "MEMO", "PENDING", "PENDING_APPROVAL", "POSTED"]
+    status: Literal["AUTHORIZATION", "MEMO", "PENDING", "PENDING_APPROVAL", "IN_REVIEW", "POSTED"]
     """The status of the transaction. This will always be PENDING or POSTED."""
 
     transaction_id: str = FieldInfo(alias="transactionId")
@@ -237,9 +237,9 @@ class TransactionLocTransactionLocTransaction(BaseModel):
     sub_category: Optional[str] = FieldInfo(alias="subCategory", default=None)
     """Additional information about the transaction category, if available."""
 
-    transaction_type: Optional[
-        Literal["ADJUSTMENT", "CHECK", "FEE", "INTEREST", "PAYMENT", "WITHDRAWAL", "PURCHASE"]
-    ] = FieldInfo(alias="transactionType", default=None)
+    transaction_type: Optional[Literal["ADJUSTMENT", "CHECK", "FEE", "INTEREST", "PAYMENT", "WITHDRAWAL"]] = FieldInfo(
+        alias="transactionType", default=None
+    )
 
 
 class TransactionLocTransaction(BaseModel):

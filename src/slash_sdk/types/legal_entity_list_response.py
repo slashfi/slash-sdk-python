@@ -20,7 +20,9 @@ class Item(BaseModel):
 
     name: str
 
-    structure: Optional[Literal["person", "llc", "lp", "llp", "gp", "partnership", "ccorp", "scorp"]] = None
+    structure: Optional[
+        Literal["person", "llc", "lp", "llp", "gp", "partnership", "cooperative", "ccorp", "scorp", "other"]
+    ] = None
     """
     Will be empty in rare cases where the legal entity has not yet been fully
     created.

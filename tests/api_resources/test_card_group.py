@@ -245,6 +245,8 @@ class TestCardGroup:
         card_group = client.card_group.list(
             cursor="cursor",
             filter_name="filter:name",
+            filter_status="active",
+            filter_virtual_account_id="filter:virtualAccountId",
         )
         assert_matches_type(CardGroupListResponse, card_group, path=["response"])
 
@@ -542,6 +544,8 @@ class TestAsyncCardGroup:
         card_group = await async_client.card_group.list(
             cursor="cursor",
             filter_name="filter:name",
+            filter_status="active",
+            filter_virtual_account_id="filter:virtualAccountId",
         )
         assert_matches_type(CardGroupListResponse, card_group, path=["response"])
 

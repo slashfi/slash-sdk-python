@@ -94,6 +94,7 @@ class TransactionResource(SyncAPIResource):
         filter_from_authorized_at: str | Omit = omit,
         filter_from_date: str | Omit = omit,
         filter_legal_entity_id: str | Omit = omit,
+        filter_provider_authorization_id: str | Omit = omit,
         filter_status: Literal["pending", "posted", "failed"] | Omit = omit,
         filter_to_authorized_at: str | Omit = omit,
         filter_to_date: str | Omit = omit,
@@ -129,6 +130,8 @@ class TransactionResource(SyncAPIResource):
 
           filter_legal_entity_id: Pass in a legal entity ID to filter transactions by accounts under a specific
               legal entity.
+
+          filter_provider_authorization_id: Filter transactions by provider authorization ID
 
           filter_status: Filter transactions by status
 
@@ -167,6 +170,7 @@ class TransactionResource(SyncAPIResource):
                         "filter_from_authorized_at": filter_from_authorized_at,
                         "filter_from_date": filter_from_date,
                         "filter_legal_entity_id": filter_legal_entity_id,
+                        "filter_provider_authorization_id": filter_provider_authorization_id,
                         "filter_status": filter_status,
                         "filter_to_authorized_at": filter_to_authorized_at,
                         "filter_to_date": filter_to_date,
@@ -408,6 +412,7 @@ class AsyncTransactionResource(AsyncAPIResource):
         filter_from_authorized_at: str | Omit = omit,
         filter_from_date: str | Omit = omit,
         filter_legal_entity_id: str | Omit = omit,
+        filter_provider_authorization_id: str | Omit = omit,
         filter_status: Literal["pending", "posted", "failed"] | Omit = omit,
         filter_to_authorized_at: str | Omit = omit,
         filter_to_date: str | Omit = omit,
@@ -443,6 +448,8 @@ class AsyncTransactionResource(AsyncAPIResource):
 
           filter_legal_entity_id: Pass in a legal entity ID to filter transactions by accounts under a specific
               legal entity.
+
+          filter_provider_authorization_id: Filter transactions by provider authorization ID
 
           filter_status: Filter transactions by status
 
@@ -481,6 +488,7 @@ class AsyncTransactionResource(AsyncAPIResource):
                         "filter_from_authorized_at": filter_from_authorized_at,
                         "filter_from_date": filter_from_date,
                         "filter_legal_entity_id": filter_legal_entity_id,
+                        "filter_provider_authorization_id": filter_provider_authorization_id,
                         "filter_status": filter_status,
                         "filter_to_authorized_at": filter_to_authorized_at,
                         "filter_to_date": filter_to_date,

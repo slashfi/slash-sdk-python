@@ -39,6 +39,9 @@ class Card(BaseModel):
     card_group_id: Optional[str] = FieldInfo(alias="cardGroupId", default=None)
     """The card group the card belongs to."""
 
+    card_group_name: Optional[str] = FieldInfo(alias="cardGroupName", default=None)
+    """The name of the card group the card belongs to."""
+
     card_product_id: Optional[str] = FieldInfo(alias="cardProductId", default=None)
     """The ID of the card product this card was created with."""
 
