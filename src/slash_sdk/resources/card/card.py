@@ -246,6 +246,7 @@ class CardResource(SyncAPIResource):
         filter_card_group_id: str | Omit = omit,
         filter_card_group_name: str | Omit = omit,
         filter_legal_entity_id: str | Omit = omit,
+        filter_modifier: str | Omit = omit,
         filter_status: Literal["active", "paused", "closed", "inactive"] | Omit = omit,
         filter_virtual_account_id: str | Omit = omit,
         sort: Literal["createdAt", "name"] | Omit = omit,
@@ -273,6 +274,10 @@ class CardResource(SyncAPIResource):
 
           filter_legal_entity_id: Pass in a legal entity ID to filter for cards in accounts under a specific legal
               entity.
+
+          filter_modifier: Filter cards by modifier. Format is "modifier_name:value" (e.g.,
+              "only_allow_recurring_payments:true"). Returns cards where the specified
+              modifier has the given value.
 
           filter_status: Returns all cards matching the status passed in.
 
@@ -305,6 +310,7 @@ class CardResource(SyncAPIResource):
                         "filter_card_group_id": filter_card_group_id,
                         "filter_card_group_name": filter_card_group_name,
                         "filter_legal_entity_id": filter_legal_entity_id,
+                        "filter_modifier": filter_modifier,
                         "filter_status": filter_status,
                         "filter_virtual_account_id": filter_virtual_account_id,
                         "sort": sort,
@@ -560,6 +566,7 @@ class AsyncCardResource(AsyncAPIResource):
         filter_card_group_id: str | Omit = omit,
         filter_card_group_name: str | Omit = omit,
         filter_legal_entity_id: str | Omit = omit,
+        filter_modifier: str | Omit = omit,
         filter_status: Literal["active", "paused", "closed", "inactive"] | Omit = omit,
         filter_virtual_account_id: str | Omit = omit,
         sort: Literal["createdAt", "name"] | Omit = omit,
@@ -587,6 +594,10 @@ class AsyncCardResource(AsyncAPIResource):
 
           filter_legal_entity_id: Pass in a legal entity ID to filter for cards in accounts under a specific legal
               entity.
+
+          filter_modifier: Filter cards by modifier. Format is "modifier_name:value" (e.g.,
+              "only_allow_recurring_payments:true"). Returns cards where the specified
+              modifier has the given value.
 
           filter_status: Returns all cards matching the status passed in.
 
@@ -619,6 +630,7 @@ class AsyncCardResource(AsyncAPIResource):
                         "filter_card_group_id": filter_card_group_id,
                         "filter_card_group_name": filter_card_group_name,
                         "filter_legal_entity_id": filter_legal_entity_id,
+                        "filter_modifier": filter_modifier,
                         "filter_status": filter_status,
                         "filter_virtual_account_id": filter_virtual_account_id,
                         "sort": sort,
