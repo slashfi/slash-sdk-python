@@ -25,6 +25,12 @@ class TransactionListParams(TypedDict, total=False):
     filter_card_id: Annotated[str, PropertyInfo(alias="filter:cardId")]
     """Filter transactions by cardId"""
 
+    filter_category: Annotated[
+        Literal["card", "ach", "wire", "international_wire", "rtp", "fee", "internal"],
+        PropertyInfo(alias="filter:category"),
+    ]
+    """Filter transactions by category type"""
+
     filter_detailed_status: Annotated[
         Literal["pending", "canceled", "failed", "settled", "declined", "refund", "reversed", "returned", "dispute"],
         PropertyInfo(alias="filter:detailed_status"),
