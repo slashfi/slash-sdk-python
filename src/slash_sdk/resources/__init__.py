@@ -8,14 +8,6 @@ from .fdx import (
     FdxResourceWithStreamingResponse,
     AsyncFdxResourceWithStreamingResponse,
 )
-from .pay import (
-    PayResource,
-    AsyncPayResource,
-    PayResourceWithRawResponse,
-    AsyncPayResourceWithRawResponse,
-    PayResourceWithStreamingResponse,
-    AsyncPayResourceWithStreamingResponse,
-)
 from .card import (
     CardResource,
     AsyncCardResource,
@@ -112,14 +104,6 @@ from .legal_entity import (
     LegalEntityResourceWithStreamingResponse,
     AsyncLegalEntityResourceWithStreamingResponse,
 )
-from .slash_handle import (
-    SlashHandleResource,
-    AsyncSlashHandleResource,
-    SlashHandleResourceWithRawResponse,
-    AsyncSlashHandleResourceWithRawResponse,
-    SlashHandleResourceWithStreamingResponse,
-    AsyncSlashHandleResourceWithStreamingResponse,
-)
 from .virtual_account import (
     VirtualAccountResource,
     AsyncVirtualAccountResource,
@@ -202,18 +186,6 @@ __all__ = [
     "AsyncCardProductResourceWithRawResponse",
     "CardProductResourceWithStreamingResponse",
     "AsyncCardProductResourceWithStreamingResponse",
-    "SlashHandleResource",
-    "AsyncSlashHandleResource",
-    "SlashHandleResourceWithRawResponse",
-    "AsyncSlashHandleResourceWithRawResponse",
-    "SlashHandleResourceWithStreamingResponse",
-    "AsyncSlashHandleResourceWithStreamingResponse",
-    "PayResource",
-    "AsyncPayResource",
-    "PayResourceWithRawResponse",
-    "AsyncPayResourceWithRawResponse",
-    "PayResourceWithStreamingResponse",
-    "AsyncPayResourceWithStreamingResponse",
     "WebhookResource",
     "AsyncWebhookResource",
     "WebhookResourceWithRawResponse",

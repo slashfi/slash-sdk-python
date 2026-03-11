@@ -146,31 +146,6 @@ Methods:
 
 - <code title="get /card-product">client.card_product.<a href="./src/slash_sdk/resources/card_product.py">list</a>(\*\*<a href="src/slash_sdk/types/card_product_list_params.py">params</a>) -> <a href="./src/slash_sdk/types/card_product_list_response.py">CardProductListResponse</a></code>
 
-# SlashHandle
-
-Types:
-
-```python
-from slash_sdk.types import SlashHandleListResponse
-```
-
-Methods:
-
-- <code title="get /slash-handle">client.slash_handle.<a href="./src/slash_sdk/resources/slash_handle.py">list</a>(\*\*<a href="src/slash_sdk/types/slash_handle_list_params.py">params</a>) -> <a href="./src/slash_sdk/types/slash_handle_list_response.py">SlashHandleListResponse</a></code>
-
-# Pay
-
-Types:
-
-```python
-from slash_sdk.types import SlashHandle, PaySendResponse
-```
-
-Methods:
-
-- <code title="get /pay">client.pay.<a href="./src/slash_sdk/resources/pay.py">retrieve</a>() -> <a href="./src/slash_sdk/types/slash_handle.py">SlashHandle</a></code>
-- <code title="post /pay">client.pay.<a href="./src/slash_sdk/resources/pay.py">send</a>(\*\*<a href="src/slash_sdk/types/pay_send_params.py">params</a>) -> <a href="./src/slash_sdk/types/pay_send_response.py">PaySendResponse</a></code>
-
 # Webhook
 
 Types:
