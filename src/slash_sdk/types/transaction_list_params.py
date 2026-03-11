@@ -22,6 +22,13 @@ class TransactionListParams(TypedDict, total=False):
     This will return all transactions that match the account ID passed in.
     """
 
+    filter_card_group_id: Annotated[str, PropertyInfo(alias="filter:cardGroupId")]
+    """Filter transactions by card group ID.
+
+    This will return all card transactions that belong to cards in the specified
+    card group.
+    """
+
     filter_card_id: Annotated[str, PropertyInfo(alias="filter:cardId")]
     """Filter transactions by cardId"""
 
