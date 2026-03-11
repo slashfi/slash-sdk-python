@@ -87,6 +87,7 @@ class TransactionResource(SyncAPIResource):
         cursor: str | Omit = omit,
         filter_account_id: str | Omit = omit,
         filter_card_id: str | Omit = omit,
+        filter_category: Literal["card", "ach", "wire", "international_wire", "rtp", "fee", "internal"] | Omit = omit,
         filter_detailed_status: Literal[
             "pending", "canceled", "failed", "settled", "declined", "refund", "reversed", "returned", "dispute"
         ]
@@ -118,6 +119,8 @@ class TransactionResource(SyncAPIResource):
               transactions that match the account ID passed in.
 
           filter_card_id: Filter transactions by cardId
+
+          filter_category: Filter transactions by category type
 
           filter_detailed_status: Filter transactions by detailed status
 
@@ -166,6 +169,7 @@ class TransactionResource(SyncAPIResource):
                         "cursor": cursor,
                         "filter_account_id": filter_account_id,
                         "filter_card_id": filter_card_id,
+                        "filter_category": filter_category,
                         "filter_detailed_status": filter_detailed_status,
                         "filter_from_authorized_at": filter_from_authorized_at,
                         "filter_from_date": filter_from_date,
@@ -188,6 +192,7 @@ class TransactionResource(SyncAPIResource):
         account_id: str | Omit = omit,
         filter_account_id: str | Omit = omit,
         filter_card_id: str | Omit = omit,
+        filter_category: Literal["card", "ach", "wire", "international_wire", "rtp", "fee", "internal"] | Omit = omit,
         filter_detailed_status: Literal[
             "pending", "canceled", "failed", "settled", "declined", "refund", "reversed", "returned", "dispute"
         ]
@@ -216,6 +221,8 @@ class TransactionResource(SyncAPIResource):
               transactions that match the account ID passed in.
 
           filter_card_id: Filter transactions by cardId
+
+          filter_category: Filter transactions by category type
 
           filter_detailed_status: Filter transactions by detailed status
 
@@ -261,6 +268,7 @@ class TransactionResource(SyncAPIResource):
                         "account_id": account_id,
                         "filter_account_id": filter_account_id,
                         "filter_card_id": filter_card_id,
+                        "filter_category": filter_category,
                         "filter_detailed_status": filter_detailed_status,
                         "filter_from_authorized_at": filter_from_authorized_at,
                         "filter_from_date": filter_from_date,
@@ -405,6 +413,7 @@ class AsyncTransactionResource(AsyncAPIResource):
         cursor: str | Omit = omit,
         filter_account_id: str | Omit = omit,
         filter_card_id: str | Omit = omit,
+        filter_category: Literal["card", "ach", "wire", "international_wire", "rtp", "fee", "internal"] | Omit = omit,
         filter_detailed_status: Literal[
             "pending", "canceled", "failed", "settled", "declined", "refund", "reversed", "returned", "dispute"
         ]
@@ -436,6 +445,8 @@ class AsyncTransactionResource(AsyncAPIResource):
               transactions that match the account ID passed in.
 
           filter_card_id: Filter transactions by cardId
+
+          filter_category: Filter transactions by category type
 
           filter_detailed_status: Filter transactions by detailed status
 
@@ -484,6 +495,7 @@ class AsyncTransactionResource(AsyncAPIResource):
                         "cursor": cursor,
                         "filter_account_id": filter_account_id,
                         "filter_card_id": filter_card_id,
+                        "filter_category": filter_category,
                         "filter_detailed_status": filter_detailed_status,
                         "filter_from_authorized_at": filter_from_authorized_at,
                         "filter_from_date": filter_from_date,
@@ -506,6 +518,7 @@ class AsyncTransactionResource(AsyncAPIResource):
         account_id: str | Omit = omit,
         filter_account_id: str | Omit = omit,
         filter_card_id: str | Omit = omit,
+        filter_category: Literal["card", "ach", "wire", "international_wire", "rtp", "fee", "internal"] | Omit = omit,
         filter_detailed_status: Literal[
             "pending", "canceled", "failed", "settled", "declined", "refund", "reversed", "returned", "dispute"
         ]
@@ -534,6 +547,8 @@ class AsyncTransactionResource(AsyncAPIResource):
               transactions that match the account ID passed in.
 
           filter_card_id: Filter transactions by cardId
+
+          filter_category: Filter transactions by category type
 
           filter_detailed_status: Filter transactions by detailed status
 
@@ -579,6 +594,7 @@ class AsyncTransactionResource(AsyncAPIResource):
                         "account_id": account_id,
                         "filter_account_id": filter_account_id,
                         "filter_card_id": filter_card_id,
+                        "filter_category": filter_category,
                         "filter_detailed_status": filter_detailed_status,
                         "filter_from_authorized_at": filter_from_authorized_at,
                         "filter_from_date": filter_from_date,
