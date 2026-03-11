@@ -86,6 +86,7 @@ class TransactionResource(SyncAPIResource):
         account_id: str | Omit = omit,
         cursor: str | Omit = omit,
         filter_account_id: str | Omit = omit,
+        filter_card_group_id: str | Omit = omit,
         filter_card_id: str | Omit = omit,
         filter_category: Literal["card", "ach", "wire", "international_wire", "rtp", "fee", "internal"] | Omit = omit,
         filter_detailed_status: Literal[
@@ -117,6 +118,9 @@ class TransactionResource(SyncAPIResource):
 
           filter_account_id: Pass in an account ID to filter transactions by account ID. This will return all
               transactions that match the account ID passed in.
+
+          filter_card_group_id: Filter transactions by card group ID. This will return all card transactions
+              that belong to cards in the specified card group.
 
           filter_card_id: Filter transactions by cardId
 
@@ -168,6 +172,7 @@ class TransactionResource(SyncAPIResource):
                         "account_id": account_id,
                         "cursor": cursor,
                         "filter_account_id": filter_account_id,
+                        "filter_card_group_id": filter_card_group_id,
                         "filter_card_id": filter_card_id,
                         "filter_category": filter_category,
                         "filter_detailed_status": filter_detailed_status,
@@ -412,6 +417,7 @@ class AsyncTransactionResource(AsyncAPIResource):
         account_id: str | Omit = omit,
         cursor: str | Omit = omit,
         filter_account_id: str | Omit = omit,
+        filter_card_group_id: str | Omit = omit,
         filter_card_id: str | Omit = omit,
         filter_category: Literal["card", "ach", "wire", "international_wire", "rtp", "fee", "internal"] | Omit = omit,
         filter_detailed_status: Literal[
@@ -443,6 +449,9 @@ class AsyncTransactionResource(AsyncAPIResource):
 
           filter_account_id: Pass in an account ID to filter transactions by account ID. This will return all
               transactions that match the account ID passed in.
+
+          filter_card_group_id: Filter transactions by card group ID. This will return all card transactions
+              that belong to cards in the specified card group.
 
           filter_card_id: Filter transactions by cardId
 
@@ -494,6 +503,7 @@ class AsyncTransactionResource(AsyncAPIResource):
                         "account_id": account_id,
                         "cursor": cursor,
                         "filter_account_id": filter_account_id,
+                        "filter_card_group_id": filter_card_group_id,
                         "filter_card_id": filter_card_id,
                         "filter_category": filter_category,
                         "filter_detailed_status": filter_detailed_status,
