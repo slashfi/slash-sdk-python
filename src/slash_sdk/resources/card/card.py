@@ -9,7 +9,7 @@ import httpx
 
 from ...types import CardStatus, card_list_params, card_create_params, card_update_params, card_retrieve_params
 from ..._types import Body, Omit, Query, Headers, NotGiven, omit, not_given
-from ..._utils import maybe_transform, async_maybe_transform
+from ..._utils import path_template, maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -165,7 +165,7 @@ class CardResource(SyncAPIResource):
         if not card_id:
             raise ValueError(f"Expected a non-empty value for `card_id` but received {card_id!r}")
         return self._get(
-            f"/card/{card_id}",
+            path_template("/card/{card_id}", card_id=card_id),
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -221,7 +221,7 @@ class CardResource(SyncAPIResource):
         if not card_id:
             raise ValueError(f"Expected a non-empty value for `card_id` but received {card_id!r}")
         return self._patch(
-            f"/card/{card_id}",
+            path_template("/card/{card_id}", card_id=card_id),
             body=maybe_transform(
                 {
                     "card_group_id": card_group_id,
@@ -348,7 +348,7 @@ class CardResource(SyncAPIResource):
         if not card_id:
             raise ValueError(f"Expected a non-empty value for `card_id` but received {card_id!r}")
         return self._get(
-            f"/card/{card_id}/utilization",
+            path_template("/card/{card_id}/utilization", card_id=card_id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -485,7 +485,7 @@ class AsyncCardResource(AsyncAPIResource):
         if not card_id:
             raise ValueError(f"Expected a non-empty value for `card_id` but received {card_id!r}")
         return await self._get(
-            f"/card/{card_id}",
+            path_template("/card/{card_id}", card_id=card_id),
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -541,7 +541,7 @@ class AsyncCardResource(AsyncAPIResource):
         if not card_id:
             raise ValueError(f"Expected a non-empty value for `card_id` but received {card_id!r}")
         return await self._patch(
-            f"/card/{card_id}",
+            path_template("/card/{card_id}", card_id=card_id),
             body=await async_maybe_transform(
                 {
                     "card_group_id": card_group_id,
@@ -668,7 +668,7 @@ class AsyncCardResource(AsyncAPIResource):
         if not card_id:
             raise ValueError(f"Expected a non-empty value for `card_id` but received {card_id!r}")
         return await self._get(
-            f"/card/{card_id}/utilization",
+            path_template("/card/{card_id}/utilization", card_id=card_id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
