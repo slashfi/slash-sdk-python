@@ -6,7 +6,7 @@ import httpx
 
 from ..types import DeveloperApplicationType, developer_account_create_application_params
 from .._types import Body, Query, Headers, NotGiven, not_given
-from .._utils import maybe_transform, async_maybe_transform
+from .._utils import path_template, maybe_transform, async_maybe_transform
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import (
@@ -74,7 +74,9 @@ class DeveloperAccountResource(SyncAPIResource):
                 f"Expected a non-empty value for `developer_account_id` but received {developer_account_id!r}"
             )
         return self._post(
-            f"/developer-account/{developer_account_id}/application",
+            path_template(
+                "/developer-account/{developer_account_id}/application", developer_account_id=developer_account_id
+            ),
             body=maybe_transform(
                 {
                     "data": data,
@@ -141,7 +143,9 @@ class AsyncDeveloperAccountResource(AsyncAPIResource):
                 f"Expected a non-empty value for `developer_account_id` but received {developer_account_id!r}"
             )
         return await self._post(
-            f"/developer-account/{developer_account_id}/application",
+            path_template(
+                "/developer-account/{developer_account_id}/application", developer_account_id=developer_account_id
+            ),
             body=await async_maybe_transform(
                 {
                     "data": data,

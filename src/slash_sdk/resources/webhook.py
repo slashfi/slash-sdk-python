@@ -8,7 +8,7 @@ import httpx
 
 from ..types import webhook_list_params, webhook_create_params, webhook_update_params
 from .._types import Body, Omit, Query, Headers, NotGiven, omit, not_given
-from .._utils import maybe_transform, async_maybe_transform
+from .._utils import path_template, maybe_transform, async_maybe_transform
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import (
@@ -145,7 +145,7 @@ class WebhookResource(SyncAPIResource):
         if not webhook_id:
             raise ValueError(f"Expected a non-empty value for `webhook_id` but received {webhook_id!r}")
         return self._patch(
-            f"/webhook/{webhook_id}",
+            path_template("/webhook/{webhook_id}", webhook_id=webhook_id),
             body=maybe_transform(
                 {
                     "status": status,
@@ -327,7 +327,7 @@ class AsyncWebhookResource(AsyncAPIResource):
         if not webhook_id:
             raise ValueError(f"Expected a non-empty value for `webhook_id` but received {webhook_id!r}")
         return await self._patch(
-            f"/webhook/{webhook_id}",
+            path_template("/webhook/{webhook_id}", webhook_id=webhook_id),
             body=await async_maybe_transform(
                 {
                     "status": status,
