@@ -7,7 +7,7 @@ from typing import Optional
 import httpx
 
 from ..._types import Body, Omit, Query, Headers, NotGiven, omit, not_given
-from ..._utils import maybe_transform, async_maybe_transform
+from ..._utils import path_template, maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -75,7 +75,7 @@ class SpendingConstraintResource(SyncAPIResource):
         if not card_group_id:
             raise ValueError(f"Expected a non-empty value for `card_group_id` but received {card_group_id!r}")
         return self._put(
-            f"/card-group/{card_group_id}/spending-constraint",
+            path_template("/card-group/{card_group_id}/spending-constraint", card_group_id=card_group_id),
             body=maybe_transform(
                 {
                     "country_rule": country_rule,
@@ -126,7 +126,7 @@ class SpendingConstraintResource(SyncAPIResource):
         if not card_group_id:
             raise ValueError(f"Expected a non-empty value for `card_group_id` but received {card_group_id!r}")
         return self._patch(
-            f"/card-group/{card_group_id}/spending-constraint",
+            path_template("/card-group/{card_group_id}/spending-constraint", card_group_id=card_group_id),
             body=maybe_transform(
                 {
                     "country_rule": country_rule,
@@ -196,7 +196,7 @@ class AsyncSpendingConstraintResource(AsyncAPIResource):
         if not card_group_id:
             raise ValueError(f"Expected a non-empty value for `card_group_id` but received {card_group_id!r}")
         return await self._put(
-            f"/card-group/{card_group_id}/spending-constraint",
+            path_template("/card-group/{card_group_id}/spending-constraint", card_group_id=card_group_id),
             body=await async_maybe_transform(
                 {
                     "country_rule": country_rule,
@@ -247,7 +247,7 @@ class AsyncSpendingConstraintResource(AsyncAPIResource):
         if not card_group_id:
             raise ValueError(f"Expected a non-empty value for `card_group_id` but received {card_group_id!r}")
         return await self._patch(
-            f"/card-group/{card_group_id}/spending-constraint",
+            path_template("/card-group/{card_group_id}/spending-constraint", card_group_id=card_group_id),
             body=await async_maybe_transform(
                 {
                     "country_rule": country_rule,

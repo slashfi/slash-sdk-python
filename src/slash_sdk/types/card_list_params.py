@@ -34,6 +34,13 @@ class CardListParams(TypedDict, total=False):
     entity.
     """
 
+    filter_modifier: Annotated[str, PropertyInfo(alias="filter:modifier")]
+    """Filter cards by modifier.
+
+    Format is "modifier_name:value" (e.g., "only_allow_recurring_payments:true").
+    Returns cards where the specified modifier has the given value.
+    """
+
     filter_status: Annotated[Literal["active", "paused", "closed", "inactive"], PropertyInfo(alias="filter:status")]
     """Returns all cards matching the status passed in."""
 

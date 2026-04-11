@@ -9,7 +9,7 @@ import httpx
 
 from ...types import CardStatus, card_list_params, card_create_params, card_update_params, card_retrieve_params
 from ..._types import Body, Omit, Query, Headers, NotGiven, omit, not_given
-from ..._utils import maybe_transform, async_maybe_transform
+from ..._utils import path_template, maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -165,7 +165,7 @@ class CardResource(SyncAPIResource):
         if not card_id:
             raise ValueError(f"Expected a non-empty value for `card_id` but received {card_id!r}")
         return self._get(
-            f"/card/{card_id}",
+            path_template("/card/{card_id}", card_id=card_id),
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -221,7 +221,7 @@ class CardResource(SyncAPIResource):
         if not card_id:
             raise ValueError(f"Expected a non-empty value for `card_id` but received {card_id!r}")
         return self._patch(
-            f"/card/{card_id}",
+            path_template("/card/{card_id}", card_id=card_id),
             body=maybe_transform(
                 {
                     "card_group_id": card_group_id,
@@ -246,6 +246,7 @@ class CardResource(SyncAPIResource):
         filter_card_group_id: str | Omit = omit,
         filter_card_group_name: str | Omit = omit,
         filter_legal_entity_id: str | Omit = omit,
+        filter_modifier: str | Omit = omit,
         filter_status: Literal["active", "paused", "closed", "inactive"] | Omit = omit,
         filter_virtual_account_id: str | Omit = omit,
         sort: Literal["createdAt", "name"] | Omit = omit,
@@ -273,6 +274,10 @@ class CardResource(SyncAPIResource):
 
           filter_legal_entity_id: Pass in a legal entity ID to filter for cards in accounts under a specific legal
               entity.
+
+          filter_modifier: Filter cards by modifier. Format is "modifier_name:value" (e.g.,
+              "only_allow_recurring_payments:true"). Returns cards where the specified
+              modifier has the given value.
 
           filter_status: Returns all cards matching the status passed in.
 
@@ -305,6 +310,7 @@ class CardResource(SyncAPIResource):
                         "filter_card_group_id": filter_card_group_id,
                         "filter_card_group_name": filter_card_group_name,
                         "filter_legal_entity_id": filter_legal_entity_id,
+                        "filter_modifier": filter_modifier,
                         "filter_status": filter_status,
                         "filter_virtual_account_id": filter_virtual_account_id,
                         "sort": sort,
@@ -342,7 +348,7 @@ class CardResource(SyncAPIResource):
         if not card_id:
             raise ValueError(f"Expected a non-empty value for `card_id` but received {card_id!r}")
         return self._get(
-            f"/card/{card_id}/utilization",
+            path_template("/card/{card_id}/utilization", card_id=card_id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -479,7 +485,7 @@ class AsyncCardResource(AsyncAPIResource):
         if not card_id:
             raise ValueError(f"Expected a non-empty value for `card_id` but received {card_id!r}")
         return await self._get(
-            f"/card/{card_id}",
+            path_template("/card/{card_id}", card_id=card_id),
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -535,7 +541,7 @@ class AsyncCardResource(AsyncAPIResource):
         if not card_id:
             raise ValueError(f"Expected a non-empty value for `card_id` but received {card_id!r}")
         return await self._patch(
-            f"/card/{card_id}",
+            path_template("/card/{card_id}", card_id=card_id),
             body=await async_maybe_transform(
                 {
                     "card_group_id": card_group_id,
@@ -560,6 +566,7 @@ class AsyncCardResource(AsyncAPIResource):
         filter_card_group_id: str | Omit = omit,
         filter_card_group_name: str | Omit = omit,
         filter_legal_entity_id: str | Omit = omit,
+        filter_modifier: str | Omit = omit,
         filter_status: Literal["active", "paused", "closed", "inactive"] | Omit = omit,
         filter_virtual_account_id: str | Omit = omit,
         sort: Literal["createdAt", "name"] | Omit = omit,
@@ -587,6 +594,10 @@ class AsyncCardResource(AsyncAPIResource):
 
           filter_legal_entity_id: Pass in a legal entity ID to filter for cards in accounts under a specific legal
               entity.
+
+          filter_modifier: Filter cards by modifier. Format is "modifier_name:value" (e.g.,
+              "only_allow_recurring_payments:true"). Returns cards where the specified
+              modifier has the given value.
 
           filter_status: Returns all cards matching the status passed in.
 
@@ -619,6 +630,7 @@ class AsyncCardResource(AsyncAPIResource):
                         "filter_card_group_id": filter_card_group_id,
                         "filter_card_group_name": filter_card_group_name,
                         "filter_legal_entity_id": filter_legal_entity_id,
+                        "filter_modifier": filter_modifier,
                         "filter_status": filter_status,
                         "filter_virtual_account_id": filter_virtual_account_id,
                         "sort": sort,
@@ -656,7 +668,7 @@ class AsyncCardResource(AsyncAPIResource):
         if not card_id:
             raise ValueError(f"Expected a non-empty value for `card_id` but received {card_id!r}")
         return await self._get(
-            f"/card/{card_id}/utilization",
+            path_template("/card/{card_id}/utilization", card_id=card_id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),

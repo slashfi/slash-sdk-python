@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.1.0-alpha.4 (2026-04-11)
+
+Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/slashfi/slash-sdk-python/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
+
+### Features
+
+* **api:** api update ([f1eff44](https://github.com/slashfi/slash-sdk-python/commit/f1eff440f3ef4ed6a0495ccba3ecd7826d862c9c))
+* **api:** api update ([47ea2de](https://github.com/slashfi/slash-sdk-python/commit/47ea2de42a4430641a44e10101e79693cfa94ba4))
+* **api:** api update ([403ce72](https://github.com/slashfi/slash-sdk-python/commit/403ce72fe8450996c6eec0b12d18605d6fd1ba10))
+* **api:** api update ([68fa0ae](https://github.com/slashfi/slash-sdk-python/commit/68fa0aeac982ca051911fb116fc585f60ec8d3b5))
+* **internal:** implement indices array format for query and form serialization ([2a9632f](https://github.com/slashfi/slash-sdk-python/commit/2a9632fd3fd8c3e7689f72bdf27db90b106adf20))
+
+
+### Bug Fixes
+
+* **client:** preserve hardcoded query params when merging with user params ([d19b67f](https://github.com/slashfi/slash-sdk-python/commit/d19b67fe9718708a9d40b314769212938987cf98))
+* **deps:** bump minimum typing-extensions version ([acdef8e](https://github.com/slashfi/slash-sdk-python/commit/acdef8e72361b2a7b24485d67f68e357c48de380))
+* ensure file data are only sent as 1 parameter ([e1c964a](https://github.com/slashfi/slash-sdk-python/commit/e1c964adfc22f846e6cd612b57b83eff5dd109d0))
+* **pydantic:** do not pass `by_alias` unless set ([2d11f9b](https://github.com/slashfi/slash-sdk-python/commit/2d11f9b1903e6f454ebb23e1141ebaa03373cfb6))
+* sanitize endpoint path params ([509a588](https://github.com/slashfi/slash-sdk-python/commit/509a588cf24e5549ea16f55a4c178a1b9a221935))
+
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([a37ad05](https://github.com/slashfi/slash-sdk-python/commit/a37ad0591c6a413ce5957904697c8db606af4c3d))
+* **ci:** skip uploading artifacts on stainless-internal branches ([59a7a78](https://github.com/slashfi/slash-sdk-python/commit/59a7a78b6e534d5e3acb42824220a1e11c9c3a60))
+* **internal:** tweak CI branches ([504ef27](https://github.com/slashfi/slash-sdk-python/commit/504ef27f0aab30e84c40a2f08d89eda3085d7547))
+* **internal:** update gitignore ([0d40ada](https://github.com/slashfi/slash-sdk-python/commit/0d40adadd47ddc74051495812222415aeb254f72))
+
 ## 0.1.0-alpha.3 (2026-03-06)
 
 Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/slashfi/slash-sdk-python/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)

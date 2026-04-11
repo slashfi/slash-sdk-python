@@ -35,7 +35,6 @@ from ._base_client import (
 if TYPE_CHECKING:
     from .resources import (
         fdx,
-        pay,
         card,
         crypto,
         oauth2,
@@ -48,13 +47,11 @@ if TYPE_CHECKING:
         transaction,
         card_product,
         legal_entity,
-        slash_handle,
         virtual_account,
         developer_account,
         merchant_category,
         developer_application,
     )
-    from .resources.pay import PayResource, AsyncPayResource
     from .resources.crypto import CryptoResource, AsyncCryptoResource
     from .resources.account import AccountResource, AsyncAccountResource
     from .resources.fdx.fdx import FdxResource, AsyncFdxResource
@@ -66,7 +63,6 @@ if TYPE_CHECKING:
     from .resources.transaction import TransactionResource, AsyncTransactionResource
     from .resources.card_product import CardProductResource, AsyncCardProductResource
     from .resources.legal_entity import LegalEntityResource, AsyncLegalEntityResource
-    from .resources.slash_handle import SlashHandleResource, AsyncSlashHandleResource
     from .resources.oauth2.oauth2 import Oauth2Resource, AsyncOauth2Resource
     from .resources.virtual_account import VirtualAccountResource, AsyncVirtualAccountResource
     from .resources.developer_account import DeveloperAccountResource, AsyncDeveloperAccountResource
@@ -206,18 +202,6 @@ class SlashSDK(SyncAPIClient):
         from .resources.card_product import CardProductResource
 
         return CardProductResource(self)
-
-    @cached_property
-    def slash_handle(self) -> SlashHandleResource:
-        from .resources.slash_handle import SlashHandleResource
-
-        return SlashHandleResource(self)
-
-    @cached_property
-    def pay(self) -> PayResource:
-        from .resources.pay import PayResource
-
-        return PayResource(self)
 
     @cached_property
     def webhook(self) -> WebhookResource:
@@ -549,18 +533,6 @@ class AsyncSlashSDK(AsyncAPIClient):
         return AsyncCardProductResource(self)
 
     @cached_property
-    def slash_handle(self) -> AsyncSlashHandleResource:
-        from .resources.slash_handle import AsyncSlashHandleResource
-
-        return AsyncSlashHandleResource(self)
-
-    @cached_property
-    def pay(self) -> AsyncPayResource:
-        from .resources.pay import AsyncPayResource
-
-        return AsyncPayResource(self)
-
-    @cached_property
     def webhook(self) -> AsyncWebhookResource:
         from .resources.webhook import AsyncWebhookResource
 
@@ -823,18 +795,6 @@ class SlashSDKWithRawResponse:
         return CardProductResourceWithRawResponse(self._client.card_product)
 
     @cached_property
-    def slash_handle(self) -> slash_handle.SlashHandleResourceWithRawResponse:
-        from .resources.slash_handle import SlashHandleResourceWithRawResponse
-
-        return SlashHandleResourceWithRawResponse(self._client.slash_handle)
-
-    @cached_property
-    def pay(self) -> pay.PayResourceWithRawResponse:
-        from .resources.pay import PayResourceWithRawResponse
-
-        return PayResourceWithRawResponse(self._client.pay)
-
-    @cached_property
     def webhook(self) -> webhook.WebhookResourceWithRawResponse:
         from .resources.webhook import WebhookResourceWithRawResponse
 
@@ -942,18 +902,6 @@ class AsyncSlashSDKWithRawResponse:
         from .resources.card_product import AsyncCardProductResourceWithRawResponse
 
         return AsyncCardProductResourceWithRawResponse(self._client.card_product)
-
-    @cached_property
-    def slash_handle(self) -> slash_handle.AsyncSlashHandleResourceWithRawResponse:
-        from .resources.slash_handle import AsyncSlashHandleResourceWithRawResponse
-
-        return AsyncSlashHandleResourceWithRawResponse(self._client.slash_handle)
-
-    @cached_property
-    def pay(self) -> pay.AsyncPayResourceWithRawResponse:
-        from .resources.pay import AsyncPayResourceWithRawResponse
-
-        return AsyncPayResourceWithRawResponse(self._client.pay)
 
     @cached_property
     def webhook(self) -> webhook.AsyncWebhookResourceWithRawResponse:
@@ -1065,18 +1013,6 @@ class SlashSDKWithStreamedResponse:
         return CardProductResourceWithStreamingResponse(self._client.card_product)
 
     @cached_property
-    def slash_handle(self) -> slash_handle.SlashHandleResourceWithStreamingResponse:
-        from .resources.slash_handle import SlashHandleResourceWithStreamingResponse
-
-        return SlashHandleResourceWithStreamingResponse(self._client.slash_handle)
-
-    @cached_property
-    def pay(self) -> pay.PayResourceWithStreamingResponse:
-        from .resources.pay import PayResourceWithStreamingResponse
-
-        return PayResourceWithStreamingResponse(self._client.pay)
-
-    @cached_property
     def webhook(self) -> webhook.WebhookResourceWithStreamingResponse:
         from .resources.webhook import WebhookResourceWithStreamingResponse
 
@@ -1184,18 +1120,6 @@ class AsyncSlashSDKWithStreamedResponse:
         from .resources.card_product import AsyncCardProductResourceWithStreamingResponse
 
         return AsyncCardProductResourceWithStreamingResponse(self._client.card_product)
-
-    @cached_property
-    def slash_handle(self) -> slash_handle.AsyncSlashHandleResourceWithStreamingResponse:
-        from .resources.slash_handle import AsyncSlashHandleResourceWithStreamingResponse
-
-        return AsyncSlashHandleResourceWithStreamingResponse(self._client.slash_handle)
-
-    @cached_property
-    def pay(self) -> pay.AsyncPayResourceWithStreamingResponse:
-        from .resources.pay import AsyncPayResourceWithStreamingResponse
-
-        return AsyncPayResourceWithStreamingResponse(self._client.pay)
 
     @cached_property
     def webhook(self) -> webhook.AsyncWebhookResourceWithStreamingResponse:

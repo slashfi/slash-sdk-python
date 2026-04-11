@@ -1,7 +1,8 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import Optional
+from typing import List, Optional
 from datetime import datetime
+from typing_extensions import Literal
 
 from pydantic import Field as FieldInfo
 
@@ -9,7 +10,17 @@ from ..._models import BaseModel
 from ..card_status import CardStatus
 from .spending_constraint import SpendingConstraint
 
-__all__ = ["Card"]
+__all__ = ["Card", "Modifier"]
+
+
+class Modifier(BaseModel):
+    name: Literal["only_allow_recurring_payments"]
+
+    value: bool
+    """Whether to only allow recurring payments.
+
+    The default value for newly created cards is false.
+    """
 
 
 class Card(BaseModel):
@@ -58,6 +69,12 @@ class Card(BaseModel):
     When true, the card will be automatically closed after a single authorization
     attempt. Note that the card will be closed even if the authorization declines or
     drops
+    """
+
+    modifiers: Optional[List[Modifier]] = None
+    """The modifiers applied to this card.
+
+    Modifiers control card behavior like restricting to recurring payments only.
     """
 
     pan: Optional[str] = None
