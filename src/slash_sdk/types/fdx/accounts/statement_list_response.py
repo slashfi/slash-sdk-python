@@ -39,7 +39,7 @@ class Statement(BaseModel):
     statement_id: str = FieldInfo(alias="statementId")
     """Long-term persistent identity of the statement."""
 
-    status: Literal["pending", "available"]
+    status: Literal["AVAILABLE", "PROCESSING", "FAILED"]
 
 
 class Page(BaseModel):
