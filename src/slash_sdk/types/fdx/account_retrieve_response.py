@@ -1,6 +1,7 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from typing import List, Union, Optional
+from datetime import date
 from typing_extensions import Literal, TypeAlias
 
 from pydantic import Field as FieldInfo
@@ -236,8 +237,8 @@ class InvestmentAccountInvestmentAccountHolding(BaseModel):
     (e.g., dollars for USD).
     """
 
-    current_unit_price_date: Optional[str] = FieldInfo(alias="currentUnitPriceDate", default=None)
-    """The date and time the current unit price was last updated."""
+    current_unit_price_date: Optional[date] = FieldInfo(alias="currentUnitPriceDate", default=None)
+    """The date (YYYY-MM-DD) the current unit price was last updated."""
 
     face_value: Optional[float] = FieldInfo(alias="faceValue", default=None)
     """
