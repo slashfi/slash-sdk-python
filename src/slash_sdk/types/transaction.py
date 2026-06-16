@@ -13,10 +13,14 @@ __all__ = [
     "CryptoInfo",
     "FeeInfo",
     "FeeInfoRelatedTransaction",
+    "FpsInfo",
     "MerchantData",
     "MerchantDataLocation",
     "OriginalCurrency",
+    "PixInfo",
     "RtpInfo",
+    "SepaInfo",
+    "SpeiInfo",
     "WireInfo",
 ]
 
@@ -94,6 +98,42 @@ class FeeInfo(BaseModel):
     related_transaction: Optional[FeeInfoRelatedTransaction] = FieldInfo(alias="relatedTransaction", default=None)
 
 
+class FpsInfo(BaseModel):
+    """
+    Information about the associated Faster Payments transfer if the transaction is a Faster Payments deposit into a Global USD account.
+    """
+
+    account_number: Optional[str] = FieldInfo(alias="accountNumber", default=None)
+    """The account number of the counterparty on the Faster Payments transfer."""
+
+    last4: Optional[str] = None
+    """
+    The last 4 digits of the account number of the counterparty on the Faster
+    Payments transfer.
+    """
+
+    recipient_name: Optional[str] = FieldInfo(alias="recipientName", default=None)
+    """The name of the recipient of the Faster Payments transfer."""
+
+    reference: Optional[str] = None
+    """
+    The free-form reference field set by the originator on the Faster Payments
+    transfer.
+    """
+
+    sender_name: Optional[str] = FieldInfo(alias="senderName", default=None)
+    """The name of the originator of the Faster Payments transfer."""
+
+    sort_code: Optional[str] = FieldInfo(alias="sortCode", default=None)
+    """The sort code of the counterparty bank on the Faster Payments transfer."""
+
+    uetr: Optional[str] = None
+    """
+    The unique end-to-end transaction reference (UETR) for the Faster Payments
+    transfer.
+    """
+
+
 class MerchantDataLocation(BaseModel):
     """Location details for the merchant/transaction."""
 
@@ -146,6 +186,24 @@ class OriginalCurrency(BaseModel):
     """
 
 
+class PixInfo(BaseModel):
+    """
+    Information about the associated PIX (Brazilian instant-payment) transfer if the transaction is a PIX deposit into a Global USD account.
+    """
+
+    description: Optional[str] = None
+    """A description of the PIX transfer provided by the originator."""
+
+    reference: Optional[str] = None
+    """The free-form reference field set by the originator on the PIX transfer."""
+
+    sender_name: Optional[str] = FieldInfo(alias="senderName", default=None)
+    """The name of the originator of the PIX transfer."""
+
+    tracking_number: Optional[str] = FieldInfo(alias="trackingNumber", default=None)
+    """The PIX network tracking number (`endToEndId`) for the transfer."""
+
+
 class RtpInfo(BaseModel):
     """
     Information about the associated Real-Time Payment (RTP) transfer if the transaction is a real-time transfer.
@@ -171,6 +229,60 @@ class RtpInfo(BaseModel):
 
     routing_number: Optional[str] = FieldInfo(alias="routingNumber", default=None)
     """The routing number of the counterparty's bank"""
+
+
+class SepaInfo(BaseModel):
+    """
+    Information about the associated SEPA (Single Euro Payments Area) transfer if the transaction is a SEPA deposit into a Global USD account.
+    """
+
+    bic: Optional[str] = None
+    """The BIC of the counterparty bank on the SEPA transfer."""
+
+    iban: Optional[str] = None
+    """The full IBAN of the counterparty on the SEPA transfer."""
+
+    iban_last4: Optional[str] = FieldInfo(alias="ibanLast4", default=None)
+    """The last 4 characters of the IBAN of the counterparty on the SEPA transfer."""
+
+    payment_scheme: Optional[str] = FieldInfo(alias="paymentScheme", default=None)
+    """The SEPA payment scheme used (e.g., `sepa_credit_transfer`, `sepa_instant`)."""
+
+    recipient_name: Optional[str] = FieldInfo(alias="recipientName", default=None)
+    """The name of the recipient of the SEPA transfer."""
+
+    reference: Optional[str] = None
+    """The free-form reference field set by the originator on the SEPA transfer."""
+
+    sender_name: Optional[str] = FieldInfo(alias="senderName", default=None)
+    """The name of the originator of the SEPA transfer."""
+
+    uetr: Optional[str] = None
+    """The unique end-to-end transaction reference (UETR) for the SEPA transfer."""
+
+
+class SpeiInfo(BaseModel):
+    """
+    Information about the associated SPEI (Mexican real-time payment) transfer if the transaction is a SPEI deposit into a Global USD account.
+    """
+
+    clabe: Optional[str] = None
+    """The CLABE of the counterparty on the SPEI transfer."""
+
+    description: Optional[str] = None
+    """A description of the SPEI transfer provided by the originator."""
+
+    reference: Optional[str] = None
+    """
+    The free-form reference field (concepto de pago) set by the originator on the
+    SPEI transfer.
+    """
+
+    sender_name: Optional[str] = FieldInfo(alias="senderName", default=None)
+    """The name of the originator of the SPEI transfer."""
+
+    tracking_number: Optional[str] = FieldInfo(alias="trackingNumber", default=None)
+    """The SPEI network tracking number (clave de rastreo) for the transfer."""
 
 
 class WireInfo(BaseModel):
@@ -333,6 +445,12 @@ class Transaction(BaseModel):
     fee_info: Optional[FeeInfo] = FieldInfo(alias="feeInfo", default=None)
     """Information populated if this transaction is a fee assessed by Slash."""
 
+    fps_info: Optional[FpsInfo] = FieldInfo(alias="fpsInfo", default=None)
+    """
+    Information about the associated Faster Payments transfer if the transaction is
+    a Faster Payments deposit into a Global USD account.
+    """
+
     memo: Optional[str] = None
     """The memo associated with the transaction.
 
@@ -369,6 +487,12 @@ class Transaction(BaseModel):
     currency is in USD.
     """
 
+    pix_info: Optional[PixInfo] = FieldInfo(alias="pixInfo", default=None)
+    """
+    Information about the associated PIX (Brazilian instant-payment) transfer if the
+    transaction is a PIX deposit into a Global USD account.
+    """
+
     provider_authorization_id: Optional[str] = FieldInfo(alias="providerAuthorizationId", default=None)
     """The provider authorization ID for the transaction.
 
@@ -382,6 +506,18 @@ class Transaction(BaseModel):
     """
     Information about the associated Real-Time Payment (RTP) transfer if the
     transaction is a real-time transfer.
+    """
+
+    sepa_info: Optional[SepaInfo] = FieldInfo(alias="sepaInfo", default=None)
+    """
+    Information about the associated SEPA (Single Euro Payments Area) transfer if
+    the transaction is a SEPA deposit into a Global USD account.
+    """
+
+    spei_info: Optional[SpeiInfo] = FieldInfo(alias="speiInfo", default=None)
+    """
+    Information about the associated SPEI (Mexican real-time payment) transfer if
+    the transaction is a SPEI deposit into a Global USD account.
     """
 
     virtual_account_id: Optional[str] = FieldInfo(alias="virtualAccountId", default=None)
