@@ -10,12 +10,10 @@ from .._models import BaseModel
 __all__ = [
     "Transaction",
     "ACHInfo",
-    "CashbackInfo",
     "CryptoInfo",
     "FeeInfo",
     "FeeInfoRelatedTransaction",
     "FpsInfo",
-    "FxFeeInfo",
     "MerchantData",
     "MerchantDataLocation",
     "OriginalCurrency",
@@ -78,19 +76,6 @@ class ACHInfo(BaseModel):
     """
 
 
-class CashbackInfo(BaseModel):
-    """Cashback earned for this transaction.
-
-    This is only present when cashback is known and currently applies to eligible card transactions.
-    """
-
-    amount_cents: float = FieldInfo(alias="amountCents")
-    """The cashback amount earned for this transaction, in cents."""
-
-    rate: float
-    """The cashback rate applied to this transaction."""
-
-
 class CryptoInfo(BaseModel):
     """Information populated if this transaction is a crypto on/off-ramp transaction."""
 
@@ -147,16 +132,6 @@ class FpsInfo(BaseModel):
     The unique end-to-end transaction reference (UETR) for the Faster Payments
     transfer.
     """
-
-
-class FxFeeInfo(BaseModel):
-    """Foreign exchange fee charged for this transaction.
-
-    This is only present when an FX fee has been created for the transaction.
-    """
-
-    amount_cents: int = FieldInfo(alias="amountCents")
-    """The FX fee amount charged for this transaction, in USD cents."""
 
 
 class MerchantDataLocation(BaseModel):
@@ -458,13 +433,6 @@ class Transaction(BaseModel):
     If the transaction is not associated with a card, this field is not sent.
     """
 
-    cashback_info: Optional[CashbackInfo] = FieldInfo(alias="cashbackInfo", default=None)
-    """Cashback earned for this transaction.
-
-    This is only present when cashback is known and currently applies to eligible
-    card transactions.
-    """
-
     crypto_info: Optional[CryptoInfo] = FieldInfo(alias="cryptoInfo", default=None)
     """Information populated if this transaction is a crypto on/off-ramp transaction."""
 
@@ -481,12 +449,6 @@ class Transaction(BaseModel):
     """
     Information about the associated Faster Payments transfer if the transaction is
     a Faster Payments deposit into a Global USD account.
-    """
-
-    fx_fee_info: Optional[FxFeeInfo] = FieldInfo(alias="fxFeeInfo", default=None)
-    """Foreign exchange fee charged for this transaction.
-
-    This is only present when an FX fee has been created for the transaction.
     """
 
     memo: Optional[str] = None
