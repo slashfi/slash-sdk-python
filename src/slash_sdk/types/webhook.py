@@ -1,6 +1,6 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import Optional
+from typing import List, Optional
 from typing_extensions import Literal
 
 from pydantic import Field as FieldInfo
@@ -48,6 +48,9 @@ class Webhook(BaseModel):
     When the endpoint was automatically disabled due to repeated failures (ISO 8601
     timestamp). Only present when status is `disabled`.
     """
+
+    enabled_events: Optional[List[str]] = FieldInfo(alias="enabledEvents", default=None)
+    """Public webhook event types this endpoint receives. Omitted means all events."""
 
     paused_at: Optional[str] = FieldInfo(alias="pausedAt", default=None)
     """When the endpoint was paused by the user (ISO 8601 timestamp)"""
