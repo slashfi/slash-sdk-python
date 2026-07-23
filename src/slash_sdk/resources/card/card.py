@@ -67,6 +67,7 @@ class CardResource(SyncAPIResource):
         type: Literal["virtual"],
         account_id: str | Omit = omit,
         card_group_id: str | Omit = omit,
+        cardholder_id: str | Omit = omit,
         card_product_id: str | Omit = omit,
         is_single_use: bool | Omit = omit,
         spending_constraint: SpendingConstraintParam | Omit = omit,
@@ -91,6 +92,9 @@ class CardResource(SyncAPIResource):
               `GET /account`. This field is required unless you are authenticating via API
               key, in which case it will default to your first commercial account. We
               recommend supplying this even if you are authenticating via API key.
+
+          cardholder_id: The ID of the cardholder to assign to the card. You can get cardholder IDs by
+              calling `GET /cardholder`.
 
           card_product_id: The ID of the card product to use when creating this card, if not specified a
               random card product will be chosen.
@@ -123,6 +127,7 @@ class CardResource(SyncAPIResource):
                     "type": type,
                     "account_id": account_id,
                     "card_group_id": card_group_id,
+                    "cardholder_id": cardholder_id,
                     "card_product_id": card_product_id,
                     "is_single_use": is_single_use,
                     "spending_constraint": spending_constraint,
@@ -387,6 +392,7 @@ class AsyncCardResource(AsyncAPIResource):
         type: Literal["virtual"],
         account_id: str | Omit = omit,
         card_group_id: str | Omit = omit,
+        cardholder_id: str | Omit = omit,
         card_product_id: str | Omit = omit,
         is_single_use: bool | Omit = omit,
         spending_constraint: SpendingConstraintParam | Omit = omit,
@@ -411,6 +417,9 @@ class AsyncCardResource(AsyncAPIResource):
               `GET /account`. This field is required unless you are authenticating via API
               key, in which case it will default to your first commercial account. We
               recommend supplying this even if you are authenticating via API key.
+
+          cardholder_id: The ID of the cardholder to assign to the card. You can get cardholder IDs by
+              calling `GET /cardholder`.
 
           card_product_id: The ID of the card product to use when creating this card, if not specified a
               random card product will be chosen.
@@ -443,6 +452,7 @@ class AsyncCardResource(AsyncAPIResource):
                     "type": type,
                     "account_id": account_id,
                     "card_group_id": card_group_id,
+                    "cardholder_id": cardholder_id,
                     "card_product_id": card_product_id,
                     "is_single_use": is_single_use,
                     "spending_constraint": spending_constraint,

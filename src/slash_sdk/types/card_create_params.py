@@ -31,6 +31,12 @@ class CardCreateParams(TypedDict, total=False):
 
     card_group_id: Annotated[str, PropertyInfo(alias="cardGroupId")]
 
+    cardholder_id: Annotated[str, PropertyInfo(alias="cardholderId")]
+    """The ID of the cardholder to assign to the card.
+
+    You can get cardholder IDs by calling `GET /cardholder`.
+    """
+
     card_product_id: Annotated[str, PropertyInfo(alias="cardProductId")]
     """
     The ID of the card product to use when creating this card, if not specified a

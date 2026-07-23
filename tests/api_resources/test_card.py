@@ -38,6 +38,7 @@ class TestCard:
             type="virtual",
             account_id="accountId",
             card_group_id="cardGroupId",
+            cardholder_id="cardholderId",
             card_product_id="cardProductId",
             is_single_use=True,
             spending_constraint={
@@ -365,6 +366,7 @@ class TestAsyncCard:
             type="virtual",
             account_id="accountId",
             card_group_id="cardGroupId",
+            cardholder_id="cardholderId",
             card_product_id="cardProductId",
             is_single_use=True,
             spending_constraint={
