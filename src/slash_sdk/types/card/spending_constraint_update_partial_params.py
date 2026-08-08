@@ -86,10 +86,15 @@ class SpendingRuleUtilizationLimit(TypedDict, total=False):
     """
 
     timezone: str
-    """IANA timezone string.
-
-    Limits always reset at midnight of the timezone specified. If no timezone is
-    specified, then UTC time is used.
+    """
+    Canonical IANA timezone identifier in `Area/Location` form, for example
+    `America/New_York`, `Asia/Shanghai` or `Asia/Hong_Kong`. Limits always reset at
+    midnight in the timezone specified. If no timezone is specified, UTC is used.
+    Values that are not valid IANA identifiers are rejected with a 400 -- this
+    includes language-level enum names such as `ASIA_SHANGHAI`, bare UTC offsets
+    such as `+8`, and abbreviations such as `PST`. Note that some languages return
+    the enum constant rather than the IANA id by default (for example Java/Kotlin
+    `ZoneId` `.name()` instead of `.getId()`).
     """
 
 
@@ -109,10 +114,15 @@ class SpendingRuleUtilizationLimitV2(TypedDict, total=False):
     """
 
     timezone: str
-    """IANA timezone string.
-
-    Limits always reset at midnight of the timezone specified. If no timezone is
-    specified, then UTC time is used.
+    """
+    Canonical IANA timezone identifier in `Area/Location` form, for example
+    `America/New_York`, `Asia/Shanghai` or `Asia/Hong_Kong`. Limits always reset at
+    midnight in the timezone specified. If no timezone is specified, UTC is used.
+    Values that are not valid IANA identifiers are rejected with a 400 -- this
+    includes language-level enum names such as `ASIA_SHANGHAI`, bare UTC offsets
+    such as `+8`, and abbreviations such as `PST`. Note that some languages return
+    the enum constant rather than the IANA id by default (for example Java/Kotlin
+    `ZoneId` `.name()` instead of `.getId()`).
     """
 
 
