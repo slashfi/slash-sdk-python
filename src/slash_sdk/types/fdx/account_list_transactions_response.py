@@ -270,8 +270,15 @@ class TransactionDepositTransactionDepositTransaction(BaseModel):
     card posting transactions, the identity of the authorization transaction
     """
 
-    sub_category: Optional[str] = FieldInfo(alias="subCategory", default=None)
-    """Additional information about the transaction category, if available."""
+    sub_category: Optional[Literal["INTEREST", "DIVIDEND", "FEE", "TRANSFER", "OTHER"]] = FieldInfo(
+        alias="subCategory", default=None
+    )
+    """Additional information about the transaction category, if available.
+
+    For Treasury (MONEYMARKET) accounts, this is the activity type of the
+    transaction (OTHER is reserved for future activity types). Omitted for other
+    account types.
+    """
 
 
 class TransactionDepositTransaction(BaseModel):
