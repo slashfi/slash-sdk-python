@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Iterable, Optional
+from typing import Optional
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
 from ..._types import SequenceNotStr
@@ -19,7 +19,6 @@ __all__ = [
     "SpendingRule",
     "SpendingRuleTransactionSizeLimit",
     "SpendingRuleUtilizationLimit",
-    "SpendingRuleUtilizationLimitV2",
 ]
 
 
@@ -84,40 +83,10 @@ class SpendingRuleUtilizationLimit(TypedDict, total=False):
     """
 
 
-class SpendingRuleUtilizationLimitV2(TypedDict, total=False):
-    limit_amount: Required[Annotated[MoneyParam, PropertyInfo(alias="limitAmount")]]
-    """Represents a monetary value"""
-
-    preset: Required[Literal["daily", "weekly", "monthly", "yearly", "collective"]]
-
-    start_date: Annotated[str, PropertyInfo(alias="startDate")]
-    """Format ISO-8601.
-
-    A day that equals today or the past. This is optional.If the `preset` is
-    "daily", this value is ignored. If the `preset` is "weekly", "monthly" or
-    "yearly", then the this value is used to compute when the limit should start
-    limit.
-    """
-
-    timezone: str
-    """
-    Canonical IANA timezone identifier in `Area/Location` form, for example
-    `America/New_York`, `Asia/Shanghai` or `Asia/Hong_Kong`. Limits always reset at
-    midnight in the timezone specified. If no timezone is specified, UTC is used.
-    Values that are not valid IANA identifiers are rejected with a 400 -- this
-    includes language-level enum names such as `ASIA_SHANGHAI`, bare UTC offsets
-    such as `+8`, and abbreviations such as `PST`. Note that some languages return
-    the enum constant rather than the IANA id by default (for example Java/Kotlin
-    `ZoneId` `.name()` instead of `.getId()`).
-    """
-
-
 class SpendingRule(TypedDict, total=False):
     transaction_size_limit: Annotated[SpendingRuleTransactionSizeLimit, PropertyInfo(alias="transactionSizeLimit")]
 
     utilization_limit: Annotated[SpendingRuleUtilizationLimit, PropertyInfo(alias="utilizationLimit")]
-
-    utilization_limit_v2: Annotated[Iterable[SpendingRuleUtilizationLimitV2], PropertyInfo(alias="utilizationLimitV2")]
 
 
 class SpendingConstraintParam(TypedDict, total=False):
