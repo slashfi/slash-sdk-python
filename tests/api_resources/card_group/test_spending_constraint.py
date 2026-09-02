@@ -57,6 +57,14 @@ class TestSpendingConstraint:
                     "start_date": "startDate",
                     "timezone": "timezone",
                 },
+                "utilization_limit_v2": [
+                    {
+                        "limit_amount": {"amount_cents": 0},
+                        "preset": "daily",
+                        "start_date": "startDate",
+                        "timezone": "timezone",
+                    }
+                ],
             },
         )
         assert_matches_type(SpendingConstraint, spending_constraint, path=["response"])
@@ -135,6 +143,14 @@ class TestSpendingConstraint:
                     "start_date": "startDate",
                     "timezone": "timezone",
                 },
+                "utilization_limit_v2": [
+                    {
+                        "limit_amount": {"amount_cents": 0},
+                        "preset": "daily",
+                        "start_date": "startDate",
+                        "timezone": "timezone",
+                    }
+                ],
             },
         )
         assert_matches_type(SpendingConstraint, spending_constraint, path=["response"])
@@ -219,6 +235,14 @@ class TestAsyncSpendingConstraint:
                     "start_date": "startDate",
                     "timezone": "timezone",
                 },
+                "utilization_limit_v2": [
+                    {
+                        "limit_amount": {"amount_cents": 0},
+                        "preset": "daily",
+                        "start_date": "startDate",
+                        "timezone": "timezone",
+                    }
+                ],
             },
         )
         assert_matches_type(SpendingConstraint, spending_constraint, path=["response"])
@@ -297,6 +321,14 @@ class TestAsyncSpendingConstraint:
                     "start_date": "startDate",
                     "timezone": "timezone",
                 },
+                "utilization_limit_v2": [
+                    {
+                        "limit_amount": {"amount_cents": 0},
+                        "preset": "daily",
+                        "start_date": "startDate",
+                        "timezone": "timezone",
+                    }
+                ],
             },
         )
         assert_matches_type(SpendingConstraint, spending_constraint, path=["response"])

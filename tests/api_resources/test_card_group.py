@@ -62,6 +62,14 @@ class TestCardGroup:
                         "start_date": "startDate",
                         "timezone": "timezone",
                     },
+                    "utilization_limit_v2": [
+                        {
+                            "limit_amount": {"amount_cents": 0},
+                            "preset": "daily",
+                            "start_date": "startDate",
+                            "timezone": "timezone",
+                        }
+                    ],
                 },
             },
             virtual_account_id="virtualAccountId",
@@ -178,6 +186,14 @@ class TestCardGroup:
                         "start_date": "startDate",
                         "timezone": "timezone",
                     },
+                    "utilization_limit_v2": [
+                        {
+                            "limit_amount": {"amount_cents": 0},
+                            "preset": "daily",
+                            "start_date": "startDate",
+                            "timezone": "timezone",
+                        }
+                    ],
                 },
             },
         )
@@ -345,6 +361,14 @@ class TestAsyncCardGroup:
                         "start_date": "startDate",
                         "timezone": "timezone",
                     },
+                    "utilization_limit_v2": [
+                        {
+                            "limit_amount": {"amount_cents": 0},
+                            "preset": "daily",
+                            "start_date": "startDate",
+                            "timezone": "timezone",
+                        }
+                    ],
                 },
             },
             virtual_account_id="virtualAccountId",
@@ -461,6 +485,14 @@ class TestAsyncCardGroup:
                         "start_date": "startDate",
                         "timezone": "timezone",
                     },
+                    "utilization_limit_v2": [
+                        {
+                            "limit_amount": {"amount_cents": 0},
+                            "preset": "daily",
+                            "start_date": "startDate",
+                            "timezone": "timezone",
+                        }
+                    ],
                 },
             },
         )

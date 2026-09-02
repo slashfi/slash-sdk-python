@@ -69,6 +69,14 @@ class TestCard:
                         "start_date": "startDate",
                         "timezone": "timezone",
                     },
+                    "utilization_limit_v2": [
+                        {
+                            "limit_amount": {"amount_cents": 0},
+                            "preset": "daily",
+                            "start_date": "startDate",
+                            "timezone": "timezone",
+                        }
+                    ],
                 },
             },
             user_data={"foo": "bar"},
@@ -199,6 +207,14 @@ class TestCard:
                         "start_date": "startDate",
                         "timezone": "timezone",
                     },
+                    "utilization_limit_v2": [
+                        {
+                            "limit_amount": {"amount_cents": 0},
+                            "preset": "daily",
+                            "start_date": "startDate",
+                            "timezone": "timezone",
+                        }
+                    ],
                 },
             },
             status="active",
@@ -381,6 +397,14 @@ class TestAsyncCard:
                         "start_date": "startDate",
                         "timezone": "timezone",
                     },
+                    "utilization_limit_v2": [
+                        {
+                            "limit_amount": {"amount_cents": 0},
+                            "preset": "daily",
+                            "start_date": "startDate",
+                            "timezone": "timezone",
+                        }
+                    ],
                 },
             },
             user_data={"foo": "bar"},
@@ -511,6 +535,14 @@ class TestAsyncCard:
                         "start_date": "startDate",
                         "timezone": "timezone",
                     },
+                    "utilization_limit_v2": [
+                        {
+                            "limit_amount": {"amount_cents": 0},
+                            "preset": "daily",
+                            "start_date": "startDate",
+                            "timezone": "timezone",
+                        }
+                    ],
                 },
             },
             status="active",
